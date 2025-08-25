@@ -10,7 +10,6 @@
     <meta name="keywords" content="palabras, clave, SEO">
      <!-- <meta http-equiv="refresh" content="60"> <!-- Refresca cada 60s -->
 </head>
-<body>
 <header>
     <nav>
         <div class="logo">
@@ -64,24 +63,7 @@
             <p>Nuestras estructuras se distinguen por su solidez, funcionalidad y versatilidad, con un enfoque orientado a la eficiencia constructiva, la rapidez de instalación y la capacidad de integrarse y adaptarse con facilidad a proyectos tanto temporales como permanentes</p>
         </section>
 </main>
+<script src="menu.js"></script>
 </body>
 </html>
-<script>
-document.querySelectorAll('.menu > li > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // evita que salte directamente al href
 
-        let parentLi = this.parentElement;
-
-        // Cerrar otros submenús
-        document.querySelectorAll('.menu li').forEach(li => {
-            if (li !== parentLi) {
-                li.classList.remove('open');
-            }
-        });
-
-        // Alternar el submenú actual
-        parentLi.classList.toggle('open');
-    });
-});
-</script>
