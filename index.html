@@ -12,18 +12,43 @@
 </head>
 <body>
 <header>
- <nav>
-            <div class="logo">
-                <img src="logo/neomodul.png" alt="MD logo" height="40"></a> <!--Logo nav-->
-            </div>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#contacte">Casa Prefabricada</a></li>
-                <li><a href="#contacte">Sobre nosotros</a></li>
-                <li><a href="#contacte">Contacto</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <div class="logo">
+            <img src="logo/neomodul.png" alt="MD logo" height="40">
+        </div>
+        <ul class="menu">
+            <li>
+                <a href="index.html">Inicio</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Opción 1</a></li>
+                    <li><a href="#">Sub Opción 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#contacte">Casa Prefabricada</a>
+                <ul class="submenu">
+                    <li><a href="#">Modelos</a></li>
+                    <li><a href="#">Precios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#contacte">Sobre nosotros</a>
+                <ul class="submenu">
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Equipo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#contacte">Contacto</a>
+                <ul class="submenu">
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </header>
+
 <main>
             <section class="inicio">
             <div class="inicio-content">
@@ -41,3 +66,22 @@
 </main>
 </body>
 </html>
+<script>
+document.querySelectorAll('.menu > li > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // evita que salte directamente al href
+
+        let parentLi = this.parentElement;
+
+        // Cerrar otros submenús
+        document.querySelectorAll('.menu li').forEach(li => {
+            if (li !== parentLi) {
+                li.classList.remove('open');
+            }
+        });
+
+        // Alternar el submenú actual
+        parentLi.classList.toggle('open');
+    });
+});
+</script>

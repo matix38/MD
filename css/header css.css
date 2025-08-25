@@ -15,6 +15,10 @@
   --radius: 16px;
   --shadow: 0 10px 30px rgba(0,0,0,.25);
   --blur: 10px;
+
+  /* alturas para el header */
+  --header-h: 72px;        /* altura cerrada */
+  --header-h-open: 220px;  /* altura expandida */
 }
 
 @media (prefers-color-scheme: light){
@@ -69,6 +73,16 @@ header{
   background: color-mix(in oklab, var(--bg) 82%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
   box-shadow: 0 2px 20px rgba(0,0,0,.12);
+
+  /* expansión del header */
+  height: var(--header-h);
+  overflow: hidden;
+  transition: height .35s ease;
+}
+
+/* expandir header si un li del menú está en hover */
+header:has(.menu li:hover){
+  height: var(--header-h-open);
 }
 
 nav{
@@ -88,7 +102,6 @@ nav{
   transition: transform .35s cubic-bezier(.2,.7,.2,1), filter .35s;
   will-change: transform, filter;
   margin-left: 100px;
-  
 }
 .logo:hover img{
   transform: translateY(-2px) scale(1.02);
@@ -103,6 +116,7 @@ nav::after {
     height: 3px;
     background: #000000;
     border-radius: 2px;
+    z-index: 1; /* para que no tape el submenu */
 }
 
 nav ul{
@@ -181,3 +195,27 @@ nav ul li:nth-child(5){ animation-delay: .25s; }
 nav ul li:nth-child(6){ animation-delay: .30s; }
 nav ul li:nth-child(7){ animation-delay: .35s; }
 
+/* --------- Submenú --------- */
+.menu li {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity .25s ease, transform .25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.menu li:hover .submenu {
+  max-height: 500px; /* ajusta según contenido */
+  opacity: 1;
+  transform: translateY(0);
+}
