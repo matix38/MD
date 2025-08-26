@@ -1,0 +1,90 @@
+.inicio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem 2rem 2rem;
+    background: #f7f8fa;
+    min-height: 350px;
+    gap: 2.5rem;
+    z-index: 1;
+}
+.inicio-content, .inicio-img {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUpIn 1s cubic-bezier(.77,0,.18,1) 0.4s forwards;
+}
+.inicio-img {
+    animation-delay: 0.6s;
+    
+}
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.inicio-content {
+    flex: 1 1 320px;
+    max-width: 600px;
+    margin-left: -600px
+}
+.inicio-content h1 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+.inicio-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+/* ---------- BOTÓN PRINCIPAL ---------- */
+.btn-principal {
+    display: inline-block;
+    background: #111111;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0px 0 #a3a3a3;
+    transition: background 0.2s, color 0.2s, box-shadow 0.3s cubic-bezier(.77,0,.18,1);
+}
+.btn-principal:hover {
+    background: #bcbcbc;
+    color: #002A7F;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08), 0 0 24px 4px #81818188;
+}
+/* ---------- IMAGEN PRINCIPAL ---------- */
+.inicio img {
+  position: sticky;
+  top: 90px;
+  margin-right: -700px;
+  width: 70%;
+  height: 70%;
+  object-fit: cover; /* la imagen cubre todo sin deformarse */
+  z-index: -0; /* al fondo */
+  opacity: 3; /* efecto para que el texto se lea mejor */
+}
+/* ---------- SOBRE NOSALTRES ---------- */
+.about {
+    background: #fff;
+    padding: 3rem 2rem 2rem 2rem;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto 2.5rem auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,42,127,0.04);
+}
+.about h2 {
+    color: #000000;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+.about p {
+    color: #333;
+    font-size: 1.15rem;
+}
