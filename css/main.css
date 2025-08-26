@@ -59,11 +59,11 @@
 }
 /* ---------- IMAGEN PRINCIPAL ---------- */
 .inicio img {
-  position: absolute;
-  top: 140px;
-  left: 46em;
-  width: 50%;
-  height: 50%;
+  position: sticky;
+  top: 90px;
+  margin-right: -700px;
+  width: 70%;
+  height: 70%;
   object-fit: cover; /* la imagen cubre todo sin deformarse */
   z-index: -0; /* al fondo */
   opacity: 3; /* efecto para que el texto se lea mejor */

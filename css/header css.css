@@ -202,20 +202,19 @@ nav ul li:nth-child(7){ animation-delay: .35s; }
 
 .submenu {
   position: absolute;
-  top: 100%;
+  top: 80%;
   left: 0;
-  background: white;
+  background: #f7f8fbc8;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity .25s ease, transform .25s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   z-index: 2;
-  opacity: 0;
+  opacity: 0.5;
   transform: translateY(-8px);
 }
 
 .menu li:hover .submenu {
-  max-height: 500px; /* ajusta según contenido */
+  max-height: 100px; /* ajusta según contenido */
   opacity: 1;
   transform: translateY(0);
 }
