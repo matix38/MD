@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="favicon.ico" />
+  <title>Arquitectura modular y prefabricada | Neomodulus</title>
+  <meta name="keywords" content="casas prefabricadas, módulos, arquitectura modular, sostenibilidad, eficiencia energética" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="modulos.css" />
+  <link rel="stylesheet" href="assets/css/footer/footer.css" />
+  </head>
+  <body>
+  <header>
+  <nav aria-label="Principal">
+  <div class="logo">
+  <img src="header/logo/logo.png" alt="Neomodulus logo" height="60">
+  </div>
+  <ul class="menu" role="menubar">
+  <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+  <li role="none" data-has-submenu>
+  <a role="menuitem" aria-haspopup="true" aria-expanded="false">Modelos</a>
+  <ul class="submenu submenu--grid" aria-label="Submenú de modelos">
+  <li class="grid">
+  <div class="card">
+  <a href="components/modulos.html">
+  <img src="header/subnav/modulos.png" alt="Módulos y estructuras">
+  <div class="title">Módulos y estructuras</div>
+  <div class="caption">Sistemas modulares</div>
+  </a>
+  </div>
+  <div class="card">
+  <a href="components/casas.html">
+  <img src="header/subnav/casa.png" alt="Casas">
+  <div class="title">Casas</div>
+  <div class="caption">Viviendas completas</div>
+  </a>
+  </div>
+  </li>
+  </ul>
+  </li>
+  <li role="none"><a role="menuitem" href="components/about.html">Sobre nosotros</a></li>
+  <li role="none" data-has-submenu>
+  <a role="menuitem" aria-haspopup="true" aria-expanded="false">Contacto</a>
+  <ul class="submenu" aria-label="Submenú de contacto">
+  <li><a href="mailto:info@neomodulus.com">Email</a></li>
+  <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+  </ul>
+  </li>
+  </ul>
+  <div class="right-controls">
+  <div class="dropdown">
+  <button class="dropdown-button" type="button">Pedir cita</button>
+  </div>
+  <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+  <input type="checkbox" id="lang-toggle" class="lang-toggle" aria-hidden="true" />
+  <label for="lang-toggle"
+   class="lang-trigger"
+   aria-haspopup="menu"
+   aria-controls="lang-menu"
+   aria-expanded="false">
+  <span class="globe-wrapper" role="img" aria-label="Seleccionar idioma">
+  <img src="header/mundo/mundo.png" alt="mundo" />
+  </span>
+  </label>
+  <nav id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+  <div class="lang-title">Selecciona idioma</div>
+  <ul class="lang-list">
+  <li class="lang-item" role="none">
+  <a role="menuitem" href="?lang=es" lang="es" hreflang="es"
+  onclick="document.getElementById('lang-toggle').checked=false">
+  <span class="flag" aria-hidden="true">🇪🇸</span>
+  <span class="lang-meta"><span class="lang-name">Español</span></span>
+  </a>
+  </li>
+  <li class="lang-item" role="none">
+  <a role="menuitem" href="?lang=en" lang="en" hreflang="en"
+  onclick="document.getElementById('lang-toggle').checked=false">
+  <span class="flag" aria-hidden="true">🇬🇧</span>
+  <span class="lang-meta"><span class="lang-name">English</span></span>
+  </a>
+  </li>
+  <li class="lang-item" role="none">
+  <a role="menuitem" href="?lang=fr" lang="fr" hreflang="fr"
+  onclick="document.getElementById('lang-toggle').checked=false">
+  <span class="flag" aria-hidden="true">🇫🇷</span>
+  <span class="lang-meta"><span class="lang-name">Français</span></span>
+  </a>
+  </li>
+  </ul>
+  </nav>
+  </div> 
+  </div>
+  </nav>
+ </header>
+  <section  class="wrap hero" id="info">
+    <div class="glass">
+      <span class="badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l5-5 13 13-5 5L3 8zm5-5l13 13" stroke="currentColor" stroke-width="1.6" opacity=".65"/></svg>
+        18 m² · Modelo compacto
+      </span>
+      <h1>R2D2</h1>
+      <p class="subtitle">Módulo prefabricado con fachada de madera y ventanales panorámicos. Diseño cálido, eficiente y listo para instalar.</p>
+      <div class="actions">
+        <a class="btn primary" href="#cita">Pedir cita telefónica</a>
+        <a class="btn secondary" href="#galeria">Ver fotos</a>
+      </div>
+    </div>
+  </section>
+   <main class="wrap">
+    <div class="grid">
+      <article class="card">
+        <div class="body">
+          <h3 style="margin:0 0 .6rem">Especificaciones rápidas</h3>
+          <div class="specs">
+            <div class="spec"><small>Superficie</small><b>18 m²</b></div>
+            <div class="spec"><small>Altura</small><b>2.7 m</b></div>
+            <div class="spec"><small>Aislamiento</small><b>Poliuretano 80mm</b></div>
+            <div class="spec"><small>Estructura</small><b>Acero galvanizado</b></div>
+            <div class="spec"><small>Carpinterías</small><b>Aluminio con RPT</b></div>
+            <div class="spec"><small>Acabados</small><b>Revest. imitación madera</b></div>
+          </div>
+
+          <!-- Galería -->
+          <section id="galeria" class="gallery-main">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1505692794403-34d4982ec1e6?q=80&w=800&auto=format&fit=crop" alt="Fachada en madera" />
+              <figcaption>Fachada en madera</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Vista exterior del módulo" />
+              <figcaption>Vista exterior</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop" alt="Interior luminoso" />
+              <figcaption>Interior luminoso</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=800&auto=format&fit=crop" alt="Ventanales panorámicos" />
+              <figcaption>Ventanales panorámicos</figcaption>
+            </figure>
+          </section>
+
+          <!-- Extras centrado y sin flechas -->
+          <div class="extras">
+            <div class="extra">
+              <h4>Instalaciones</h4>
+              <p>Precableado eléctrico, preinstalación de climatización y fontanería.</p>
+            </div>
+            <div class="extra">
+              <h4>Durabilidad</h4>
+              <p>Estructura anticorrosiva y garantía de 5 años en defectos de fabricación.</p>
+            </div>
+            <div class="extra">
+              <h4>Entrega</h4>
+              <p>Montaje en 1–2 días y entrega en 6–8 semanas en todo el país.</p>
+            </div>
+          </div>
+
+          <!-- Info extendida -->
+          <div class="info-grid">
+            <div class="info">
+              <h4>Eficiencia y confort</h4>
+              <ul class="bullets">
+                <li>Aislamiento continuo 80 mm + rotura de puente térmico.</li>
+                <li>Carpinterías con doble acristalamiento bajo emisivo.</li>
+                <li>Opcional: climatización inverter A++ y ventilación mecánica.</li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Acabados personalizables</h4>
+              <ul class="bullets">
+                <li>Revestimientos exteriores: madera natural o composite.</li>
+                <li>Interiores: suelo vinílico, microcemento o tarima.</li>
+                <li>Paquete “panorámico”: ventanas de suelo a techo.</li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Proceso y plazos</h4>
+              <ul class="bullets">
+                <li>Diseño y validación: 1 semana.</li>
+                <li>Fabricación: 4–6 semanas.</li>
+                <li>Transporte + montaje: 1–2 días (en parcela preparada).</li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Instalación en parcela</h4>
+              <ul class="bullets">
+                <li>Cimentación recomendada: zapatas o losa nivelada.</li>
+                <li>Conexiones: acometida eléctrica y saneamiento.</li>
+                <li>Opcional: kit solar aislada o híbrida.</li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Garantías y normativa</h4>
+              <ul class="bullets">
+                <li>Garantía estructural: 5 años. Componentes: 2 años.</li>
+                <li>Cumplimiento CTE (residencial/turístico según uso).</li>
+                <li>Memoria técnica y planos incluidos.</li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Usos recomendados</h4>
+              <ul class="bullets">
+                <li>Oficina, tiny home, alojamiento turístico o showroom.</li>
+                <li>Ampliación de vivienda sin obra mayor (según municipio).</li>
+                <li>Apoyo temporal para eventos o retail.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="info" style="margin-top:22px">
+            <h4>Preguntas frecuentes</h4>
+            <details><summary>¿Necesito licencia?</summary><p class="note">Depende del municipio y del uso (obra menor, comunicación previa o actividad). Te ayudamos con la documentación.</p></details>
+            <details><summary>¿Se puede trasladar más adelante?</summary><p class="note">Sí, el módulo es transportable con camión grúa. Preparamos anclajes para reubicación.</p></details>
+            <details><summary>¿Qué incluye el precio?</summary><p class="note">Estructura, cerramientos, carpinterías, preinstalaciones y acabados base. Transporte e instalación opcionales según ubicación.</p></details>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="body">
+          <h3 style="margin:0 0 .6rem">Precio estimado</h3>
+          <div class="price"><span class="num">€19,900</span><span class="vat">+ IVA</span></div>
+          <div class="split"></div>
+          <ul class="list">
+            <li>Transporte nacional disponible</li>
+            <li>Montaje en 1–2 días</li>
+            <li>Personalización de acabados</li>
+          </ul>
+          <div class="split"></div>
+          <div class="pill floaty"> Plazas de instalación en 6–8 semanas</div>
+          <div class="actions" style="margin-top:14px">
+            <a class="btn primary" href="#cita">Pedir cita</a>
+            <a class="btn secondary" href="#info">Descargar ficha</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Cita telefónica -->
+    <section id="cita" class="cta-phone">
+      <article class="card">
+        <div class="body">
+          <h3 style="margin:0 0 .6rem">Reserva una cita telefónica</h3>
+          <p class="subtitle" style="margin:0 0 10px">Déjanos tu número y elegimos contigo el mejor horario. Un asesor te llama para resolver dudas y darte un presupuesto orientativo.</p>
+
+          <form class="form" onsubmit="event.preventDefault(); this.reset(); alert('¡Gracias! Te llamaremos en el horario elegido.');">
+            <div class="field">
+              <label>Nombre completo</label>
+              <input name="nombre" required placeholder="Tu nombre"/>
+            </div>
+            <div class="field">
+              <label>Teléfono</label>
+              <input name="telefono" type="tel" required pattern="[\+\d\s\-]{7,}" placeholder="Ej. +34 612 345 678" />
+              <span class="hint">Aceptamos prefijos internacionales.</span>
+            </div>
+            <div class="field">
+              <label>Fecha preferida</label>
+              <input id="fecha" name="fecha" type="date" required />
+            </div>
+            <div class="field">
+              <label>Franja horaria</label>
+              <select name="hora" required>
+                <option value="">Elige una franja…</option>
+                <option>Mañana (09:00–12:00)</option>
+                <option>Mediodía (12:00–15:00)</option>
+                <option>Tarde (15:00–19:00)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Ubicación aproximada</label>
+              <input name="ubicacion" placeholder="Provincia / Ciudad"/>
+            </div>
+            <div class="field">
+              <label>Notas</label>
+              <textarea name="notas" rows="3" placeholder="Cuéntanos tu idea de uso, conexiones, acabados…"></textarea>
+            </div>
+
+            <label style="display:flex;align-items:center;gap:8px;margin-top:4px">
+              <input type="checkbox" required />
+              <span class="note">Acepto ser contactado telefónicamente para información sobre el módulo R2D2.</span>
+            </label>
+
+            <div class="actions" style="margin-top:10px">
+              <button class="btn primary" type="submit">Pedir llamada</button>
+              <a class="btn secondary" href="#galeria">Ver galería</a>
+            </div>
+            <p class="note">Tus datos se usan solo para gestionar esta cita. No compartimos tu información con terceros.</p>
+          </form>
+        </div>
+      </article>
+      <aside class="card">
+        <div class="body">
+          <h4 style="margin:0 0 .4rem;color:var(--brand)">Qué veremos en la llamada</h4>
+          <ul class="list">
+            <li>Encaje del módulo en tu parcela y normativa local.</li>
+            <li>Costes de transporte e instalación según zona.</li>
+            <li>Personalización de acabados y extras.</li>
+            <li>Calendario estimado y siguientes pasos.</li>
+          </ul>
+          <div class="split"></div>
+          <h4 style="margin:0 0 .4rem;color:var(--brand)">Documentación previa</h4>
+          <ul class="list">
+            <li>Fotos o plano de la parcela (si tienes).</li>
+            <li>Dirección aproximada para calcular transporte.</li>
+            <li>Uso previsto (vivienda, oficina, turístico...).</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer" id="contacto">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Neomodulus</h4>
+      <p>Arquitectura modular: viviendas modernas, eficientes y sostenibles.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>Tel: +34 123 456 789<br>Correo: <a href="mailto:info@neomodulus.com">info@neomodulus.com</a></p>
+    </div>
+    <div class="footer-section">
+      <h4>Síguenos</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><img src="footer/ig.png" alt="Instagram" class="footer-icon"></a>
+        <a href="#" aria-label="Facebook"><img src="footer/face.png" alt="Facebook" class="footer-icon"></a>
+        <a href="https://wa.me/34123456789" aria-label="WhatsApp" target="_blank" rel="noopener"><img src="footer/washap.png" alt="WhatsApp" class="footer-icon"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Neomodulus. Todos los derechos reservados.
+  </div>
+</footer>
+<!-- Script: menús accesibles + acordeón + año -->
+<script>
+  (function(){
+    const header = document.querySelector('header');
+
+    // Submenús accesibles
+    document.querySelectorAll('[data-has-submenu]').forEach((li) => {
+      let closeTimer = null;
+      const trigger = li.querySelector(':scope > a[aria-haspopup="true"]');
+      const submenu = li.querySelector(':scope > .submenu');
+
+      const open = () => {
+        clearTimeout(closeTimer);
+        li.classList.add('is-open');
+        trigger && trigger.setAttribute('aria-expanded', 'true');
+        header && header.classList.add('submenu-open');
+      };
+      const scheduleClose = () => {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
+          li.classList.remove('is-open');
+          trigger && trigger.setAttribute('aria-expanded', 'false');
+          if(!document.querySelector('.menu > li.is-open')){
+            header && header.classList.remove('submenu-open');
+          }
+        }, 180);
+      };
+
+      li.addEventListener('pointerenter', open);
+      li.addEventListener('pointerleave', scheduleClose);
+      submenu && submenu.addEventListener('pointerenter', open);
+      submenu && submenu.addEventListener('pointerleave', scheduleClose);
+
+      trigger && trigger.addEventListener('focus', open);
+      li.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          li.classList.remove('is-open');
+          trigger && trigger.setAttribute('aria-expanded', 'false');
+          trigger && trigger.focus();
+          if(!document.querySelector('.menu > li.is-open')){
+            header && header.classList.remove('submenu-open');
+          }
+        }
+      });
+
+      trigger && trigger.addEventListener('click', (e) => {
+        if (submenu) {
+          e.preventDefault();
+          const isOpen = li.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', String(isOpen));
+          if(isOpen){
+            header && header.classList.add('submenu-open');
+          } else if(!document.querySelector('.menu > li.is-open')){
+            header && header.classList.remove('submenu-open');
+          }
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      const openItem = document.querySelector('.menu > li.is-open');
+      if (openItem && !openItem.contains(e.target)) {
+        document.querySelectorAll('.menu > li.is-open').forEach(li => {
+          const trigger = li.querySelector(':scope > a[aria-haspopup="true"]');
+          li.classList.remove('is-open');
+          trigger && trigger.setAttribute('aria-expanded', 'false');
+        });
+        header && header.classList.remove('submenu-open');
+      }
+    });
+
+    // Acordeón exclusivo en "Sobre nosotros"
+    document.querySelectorAll('#sobre-nosotros details').forEach((det) => {
+      det.addEventListener('toggle', () => {
+        if (det.open) {
+          document.querySelectorAll('#sobre-nosotros details').forEach((other) => {
+            if (other !== det) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+
+    // Accesibilidad por teclado para summary
+    document.querySelectorAll('#sobre-nosotros summary').forEach(s => {
+      s.setAttribute('tabindex', '0');
+      s.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          const details = s.parentElement;
+          details.open = !details.open;
+        }
+      });
+    });
+
+    // Año del footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
