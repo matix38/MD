@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" />
+  <title>Arquitectura modular y prefabricada | Neomodulus</title>
+  <meta name="keywords" content="casas prefabricadas, módulos, arquitectura modular, sostenibilidad, eficiencia energética" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/main/main.css" />
+  <link rel="stylesheet" href="assets/css/footer/footer.css" />
+  <link rel="stylesheet" href="mobil.css" />
+</head>
+<body>
+  <!-- Backdrop + Drawer (móvil) -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Menú móvil" aria-hidden="true">
+    <header>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <img src="header/logo/logo.png" alt="Neomodulus logo" height="36" />
+        <button id="closeDrawer" class="hamburger" aria-label="Cerrar menú" title="Cerrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <nav role="navigation" aria-label="Navegación principal (móvil)">
+      <ul class="nav-list" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+        <li role="none">
+          <details class="accordion" id="acc-modelos">
+            <summary class="accordion-button" role="button" aria-controls="panel-modelos" aria-expanded="false">
+              <span>Modelos</span>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </summary>
+            <div class="accordion-content" id="panel-modelos" role="region" aria-labelledby="acc-modelos">
+              <a href="modulos.html">
+                <img src="header/subnav/modulos.png" alt="Módulos y estructuras" />
+                <div>
+                  <div style="font-weight:700">Módulos y estructuras</div>
+                  <div class="caption">Sistemas modulares</div>
+                </div>
+              </a>
+              <a href="components/casas.html">
+                <img src="header/subnav/casa.png" alt="Casas" />
+                <div>
+                  <div style="font-weight:700">Casas</div>
+                  <div class="caption">Viviendas completas</div>
+                </div>
+              </a>
+            </div>
+          </details>
+        </li>
+        <li role="none"><a role="menuitem" href="components/about.html">Sobre nosotros</a></li>
+        <li role="none"><a role="menuitem" href="mailto:info@neomodulus.com">Email</a></li>
+        <li role="none"><a role="menuitem" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </nav>
+
+    <div class="meta" aria-label="Preferencias e idioma">
+      <div class="lang-row" role="group" aria-label="Idiomas">
+        <a href="?lang=es" lang="es" hreflang="es">🇪🇸 Español</a>
+        <a href="?lang=en" lang="en" hreflang="en">🇬🇧 English</a>
+        <a href="?lang=fr" lang="fr" hreflang="fr">🇫🇷 Français</a>
+      </div>
+      <div class="contact-row">
+        <a href="#" class="cta-inline" aria-label="Pedir cita">Pedir cita</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HEADER -->
+  <header>
+    <nav aria-label="Principal">
+      <button id="openDrawer" class="hamburger" aria-label="Abrir menú" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <div class="logo">
+        <img src="header/logo/logo.png" alt="Neomodulus logo" height="60">
+      </div>
+
+      <ul class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+        <li role="none" data-has-submenu>
+          <a role="menuitem" aria-haspopup="true" aria-expanded="false">Modelos</a>
+          <ul class="submenu submenu--grid" aria-label="Submenú de modelos">
+            <li class="grid">
+              <div class="card">
+                <a href="modulos.html">
+                  <img src="header/subnav/modulos.png" alt="Módulos y estructuras">
+                  <div class="title">Módulos y estructuras</div>
+                  <div class="caption">Sistemas modulares</div>
+                </a>
+              </div>
+              <div class="card">
+                <a href="components/casas.html">
+                  <img src="header/subnav/casa.png" alt="Casas">
+                  <div class="title">Casas</div>
+                  <div class="caption">Viviendas completas</div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li role="none"><a role="menuitem" href="components/about.html">Sobre nosotros</a></li>
+        <li role="none" data-has-submenu>
+          <a role="menuitem" aria-haspopup="true" aria-expanded="false">Contacto</a>
+          <ul class="submenu" aria-label="Submenú de contacto">
+            <li><a href="mailto:info@neomodulus.com">Email</a></li>
+            <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="right-controls">
+        <div class="dropdown">
+          <button class="dropdown-button" type="button">Pedir cita</button>
+        </div>
+        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+          <input type="checkbox" id="lang-toggle" class="lang-toggle" aria-hidden="true" />
+          <label for="lang-toggle" class="lang-trigger" aria-haspopup="menu" aria-controls="lang-menu" aria-expanded="false">
+            <span class="globe-wrapper" role="img" aria-label="Seleccionar idioma">
+              <img src="icono.png" alt="mundo" />
+            </span>
+          </label>
+          <nav id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+            <div class="lang-title">Selecciona idioma</div>
+            <ul class="lang-list">
+              <li class="lang-item" role="none"><a role="menuitem" href="?lang=es" lang="es" hreflang="es">🇪🇸 Español</a></li>
+              <li class="lang-item" role="none"><a role="menuitem" href="?lang=en" lang="en" hreflang="en">🇬🇧 English</a></li>
+              <li class="lang-item" role="none"><a role="menuitem" href="?lang=fr" lang="fr" hreflang="fr">🇫🇷 Français</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery gallery--horizontal" id="gallery" aria-label="Galería horizontal de 3 imágenes">
+      <div class="gallery__viewport">
+        <article class="slide" id="slide-1" aria-roledescription="slide" aria-label="1 de 3">
+          <div class="frame">
+            <img src="gallery/casa playa 2.png" alt="Casa modular de dos pisos frente al lago" />
+          </div>
+        </article>
+        <article class="slide" id="slide-2" aria-roledescription="slide" aria-label="2 de 3">
+          <div class="frame">
+            <img src="gallery/casa playa.png" alt="Casa compacta sobre césped con lago y bosque" />
+          </div>
+        </article>
+        <article class="slide" id="slide-3" aria-roledescription="slide" aria-label="3 de 3">
+          <div class="frame">
+            <img src="gallery/modulomontaña.png" alt="Casa modular moderna con paneles solares junto al mar" />
+          </div>
+        </article>
+      </div>
+
+      <h2 class="section-title gallery__title">Modelos destacados</h2>
+
+      <div class="gallery__dots" role="tablist" aria-label="Navegación de galería">
+        <a href="#slide-1" role="tab" aria-controls="slide-1" aria-label="Ir a la imagen 1"></a>
+        <a href="#slide-2" role="tab" aria-controls="slide-2" aria-label="Ir a la imagen 2"></a>
+        <a href="#slide-3" role="tab" aria-controls="slide-3" aria-label="Ir a la imagen 3"></a>
+      </div>
+    </section>
+
+    <!-- Lista vertical de modelos -->
+    <div class="wrapper tiles">
+      <!-- 18m² -->
+      <section class="tile tile--lightblue" aria-labelledby="t-18">
+        <div class="content">
+          <div class="eyebrow">18&nbsp;m²</div>
+          <h2 id="t-18" class="zalando-sans-expanded-uniquifier">R2D2</h2>
+        </div>
+        <div class="figure" aria-hidden="true">
+          <img src="catalogo/18m2/18mlateral.png" alt="">
+        </div>
+        <div class="cta">
+          <a class="btn btn--ghost" href="modulos.html">Reservar</a>
+        </div>
+      </section>
+
+      <!-- 28m² -->
+      <section class="tile tile--lightblue" aria-labelledby="t-28">
+        <div class="content">
+          <div class="eyebrow">28&nbsp;m²</div>
+          <h2 id="t-28" class="zalando-sans-expanded-uniquifier">R3D3</h2>
+        </div>
+        <div class="figure" aria-hidden="true">
+          <img src="catalogo/28m2/28mfrontal.png" alt="">
+        </div>
+        <div class="cta">
+          <a class="btn btn--ghost" href="modulos.html">Reservar</a>
+        </div>
+      </section>
+
+      <!-- 36m² -->
+      <section class="tile tile--lightblue" aria-labelledby="t-36">
+        <div class="content">
+          <div class="eyebrow">36&nbsp;m²</div>
+          <h2 id="t-36" class="zalando-sans-expanded-uniquifier">R4D4</h2>
+        </div>
+        <div class="figure" aria-hidden="true">
+          <img src="catalogo/36m2/36mfrontal.png" alt="Render frontal del módulo R4D4 de 36 metros cuadrados">
+        </div>
+        <div class="cta">
+          <a class="btn btn--ghost" href="modulos.html">Reservar</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+
+    <footer class="footer" id="contacto">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Neomodulus</h4>
+      <p>Arquitectura modular: viviendas modernas,<p>
+      <p>eficientes y sostenibles.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>Tel: +34 123 456 789<br>Correo: <a class="correo" href="mailto:info@neomodulus.com">info@neomodulus.com</a></p>
+    </div>
+    <div class="footer-section">
+      <h4>Síguenos</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><img src="footer/ig.png" alt="Instagram" class="footer-icon"></a>
+        <a href="#" aria-label="Facebook"><img src="footer/face.png" alt="Facebook" class="footer-icon"></a>
+        <a href="https://wa.me/34123456789" aria-label="WhatsApp" target="_blank" rel="noopener"><img src="footer/washap.png" alt="WhatsApp" class="footer-icon"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Neomodulus. Todos los derechos reservados.
+  </div>
+</footer>
+
+  <!-- JS -->
+  <script>
+    (function(){
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const drawer = document.getElementById('drawer');
+      const backdrop = document.getElementById('backdrop');
+
+      function open(){
+        document.documentElement.classList.add('is-open');
+        document.body.classList.add('no-scroll');
+        drawer.setAttribute('aria-hidden','false');
+        openBtn.setAttribute('aria-expanded','true');
+        closeBtn.focus({preventScroll:true});
+      }
+      function close(){
+        document.documentElement.classList.remove('is-open');
+        document.body.classList.remove('no-scroll');
+        drawer.setAttribute('aria-hidden','true');
+        openBtn.setAttribute('aria-expanded','false');
+        openBtn.focus({preventScroll:true});
+      }
+
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      backdrop.addEventListener('click', close);
+      window.addEventListener('keydown', e => { if(e.key === 'Escape' && document.documentElement.classList.contains('is-open')) close(); });
+
+      // ARIA en <details>
+      document.querySelectorAll('.accordion').forEach(acc=>{
+        const summary = acc.querySelector('summary');
+        const region = acc.querySelector('[role="region"]');
+        const set = ()=> summary.setAttribute('aria-expanded', acc.open ? 'true' : 'false');
+        acc.addEventListener('toggle', set);
+        set();
+        if(region){
+          const id = region.id || 'panel-'+Math.random().toString(36).slice(2);
+          region.id = id; summary.setAttribute('aria-controls', id);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
