@@ -1,0 +1,555 @@
+/* =======================================
+   mobile.css — Neomodulus (responsive móvil, elegante)
+   Carga esta hoja DESPUÉS de tus CSS para sobrescribir en <768px.
+   Filosofía: tipografía legible, espacios aireados, sombras suaves,
+   transiciones sutiles, accesibilidad.
+   + Sección añadida: .gallery responsive con scroll-snap
+   ======================================= */
+
+/* ===== Preferencias de movimiento ===== */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===== Color scheme & tokens ===== */
+:root{
+  --mobile-header-h: 64px;
+  --radius-sm: 10px;        /* radios suaves */
+  --radius-md: 14px;
+  --blur: 10px;             /* glass */
+  --elev-1: 0 6px 20px rgba(0,0,0,.06);
+  --elev-2: 0 10px 30px rgba(0,0,0,.10);
+  --ring: 0 0 0 3px color-mix(in oklab, var(--brand, #0a84ff) 35%, transparent);
+  --fs-h2: clamp(18px, 4.8vw, 26px); /* Tamaño adaptable */
+  /* tipografía */
+  --font-base: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --fs-hero: clamp(22px, 6vw, 32px);
+  --fs-body: clamp(15px, 3.6vw, 17px);
+
+  /* tokens extra para la gallery */
+  --container: 1120px;              /* ancho máximo genérico */
+  --shadow-md: 0 10px 30px rgba(0,0,0,.10); /* sombra armonizada con --elev-2 */
+  --brand-2: #7c3aed;               /* fallback para gradientes */
+}
+
+@media (max-width: 767px){
+  /* ===== Reset y ergonomía ===== */
+  html, body{ scroll-behavior:smooth; }
+  body{ font-family:var(--font-base); font-size:var(--fs-body); -webkit-tap-highlight-color: transparent; }
+  :root{ --header-h: var(--mobile-header-h); }
+
+  /* ===== Header compacto y elegante ===== */
+  header{
+    height: var(--header-h);
+    backdrop-filter: saturate(160%) blur(var(--blur));
+    -webkit-backdrop-filter: saturate(160%) blur(var(--blur));
+    background: color-mix(in oklab, var(--surface, #fff) 88%, transparent);
+    border-bottom: 1px solid color-mix(in oklab, var(--border, #e6e6e6) 70%, transparent);
+    box-shadow: var(--elev-1);
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Contenedor del nav: respiración lateral */
+  nav[aria-label="Principal"]{
+    grid-template-columns: auto 1fr auto; /* hamburguesa | logo | controles */
+    gap: 12px;
+    padding-inline: clamp(12px, 4vw, 22px);
+    align-items:center;
+    min-block-size: var(--header-h);
+  }
+
+  /* Logo: tamaño armónico */
+  .logo img{ block-size: 30px; inline-size:auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.05)); margin-left: 20px; }
+
+  /* ===== Estado hover no intrusivo en móvil ===== */
+  @media (pointer: coarse){
+    /* Desactiva submenús flotantes en móvil */
+    li[data-has-submenu] > .submenu{ display:none !important; }
+  }
+
+  /* ===== Botones hamburguesa ===== */
+  .hamburger{
+    display:inline-grid !important;
+    place-items:center;
+    width:44px; height:44px;
+    border-radius:999px; background:transparent; border:0;
+    transition: transform .12s ease;
+  }
+  .hamburger:active{ transform: scale(.96); }
+  .hamburger:focus-visible{ outline:none; box-shadow: var(--ring); }
+  .hamburger svg{ width:26px; height:26px; }
+
+  /* Mostrar SIEMPRE el botón de abrir en el header principal */
+  #openDrawer{ display:inline-grid !important; }
+
+  /* --- CORRECCIÓN solicitada ---
+     Ocultar la “X” (cerrar) por defecto y mostrarla solo con el drawer abierto */
+  .drawer header #closeDrawer{
+    display: none;          
+    visibility: hidden;     
+    color: #000000;
+  }
+  html.is-open .drawer header #closeDrawer{
+    display: inline-grid;   
+    visibility: visible;
+  }
+
+  /* ===== Oculta el menú horizontal de escritorio ===== */
+  .menu{ display:none !important; }
+
+  /* ===== Right controls más limpios ===== */
+  .right-controls{ gap:10px; }
+  .dropdown{ display:none; } /* opcional mover CTA al drawer */
+  .lang-trigger img{ inline-size:32px; block-size:32px; margin-left: -48px;}
+  .lang-menu{ inset-inline-end: 8px; margin-left: -100px; }
+
+  /* ===== Backdrop (glass) ===== */
+  .backdrop{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.55);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 70;
+  }
+
+  /* ===== Drawer ===== */
+  .drawer{
+    position: fixed; inset-block: 0; inset-inline-start: 0;
+    width: min(88vw, 360px);
+    background-color: #fff;
+    border-right: 1px solid color-mix(in oklab, var(--border, #e6e6e6) 75%, transparent);
+    backdrop-filter: blur(var(--blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(140%);
+    transform: translateX(-100%);
+    transition: transform .26s cubic-bezier(.22,.61,.36,1);
+    z-index: 80;
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 16px clamp(14px, 4vw, 18px) 18px;
+    box-shadow: var(--elev-2);
+  }
+
+  /* Cabecera del drawer */
+  .drawer header{
+    position: static; box-shadow: none; border: none; padding: 0; height:auto; background: transparent;
+  }
+  .drawer header .hamburger{ margin-inline-start:auto; }
+
+  /* Lista principal */
+  .nav-list{ list-style:none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+  .nav-list > li > a,
+  .accordion-button{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 14px; border-radius: var(--radius-md);
+    text-decoration:none; color: var(--text, #111111);
+  }
+  .nav-list > li > a:active{ transform: translateY(1px); }
+  .nav-list > li > a:focus-visible{ outline:none; box-shadow: var(--ring); }
+
+  /* Acordeón "Modelos" */
+  details.accordion{
+    border-radius: var(--radius-md); overflow: hidden;
+    background: #ffffff;
+  }
+  .accordion-button{ background:#fff; border:none; width:100%; text-align:left; }
+  .accordion-button span{ font-weight:600; letter-spacing:.01em; }
+  .chev{ transition: transform .16s ease; }
+  details[open] .chev{ transform: rotate(90deg); }
+  details > summary{ list-style:none; }
+  details > summary::-webkit-details-marker{ display:none; }
+
+  .accordion-content{ display:grid; gap:10px; padding: 8px 8px 10px 10px; }
+  .accordion-content a{
+    display:flex; gap:12px; align-items:center; padding:10px;
+    text-decoration:none; color:var(--text, #111);
+    border-radius: var(--radius-sm);
+    background: #fff;
+  }
+  .accordion-content a:active{ transform: translateY(1px); }
+  .accordion-content img{
+    width:78px; height:78px; object-fit:cover;
+    border-radius: 12px;
+  }
+  .caption{ font-size: 12px; color: var(--text-muted, #6b7280); }
+
+  /* Meta (idiomas / CTA) */
+  .drawer .meta{
+    margin-top:50px; display:grid; gap:10px; padding-top:14px;
+  }
+  .lang-row{ display:flex; gap:8px; }
+  .lang-row a{
+    flex:1; text-align:center; padding: 10px 12px;
+    border-radius: 12px; 
+    color: #111;
+    text-decoration: none;
+  }
+  .contact-row{ display:grid; gap:8px; }
+  .contact-row a{
+    text-decoration:none; padding:12px;
+    border:1px solid color-mix(in oklab, var(--border, #e6e6e6) 75%, transparent);
+    border-radius: 12px; background: #000000d9; color:#fff; text-align:center; font-weight:600;
+  }
+
+  /* Estado abierto */
+  html.is-open .backdrop{ opacity:1; pointer-events:auto; }
+  html.is-open .drawer{ transform: translateX(0); }
+  body.no-scroll{ overflow:hidden; height:100vh; }
+
+  /* ===== Tipografía utilitaria ===== */
+  h1{ font-size: var(--fs-hero); line-height:1.15; letter-spacing:-.01em; }
+  p{ line-height:1.55; color: var(--text-muted, #5b5b5b); }
+
+  /* ===== Safe areas iOS ===== */
+  .drawer{
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+
+  /* ===== Forzar header claro en móvil (sin dark) ===== */
+  :root{
+    --surface: #fff;          
+    --border: #e6e6e6;
+    --text: #111;
+    --text-muted: #5b5b5b;
+  }
+  header{
+    background: rgba(255,255,255,.92) !important; 
+    border-bottom-color: rgba(0,0,0,.08) !important;
+    color: var(--text);
+  }
+  .drawer{
+    background: rgba(255,255,255,.98) !important;
+    border-right-color: rgba(0,0,0,.08) !important;
+  }
+}
+
+/* ==================================================
+   GALLERY responsive (añadido)
+   ================================================== */
+.gallery{
+  position: relative;
+  max-width: var(--container);
+  margin: 24px auto;
+  padding: 0 12px;
+  height: auto; /* ← corregido: antes era 1 */
+}
+.gallery__viewport{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  overflow-x: auto;
+  gap: 19px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /* ocultar scrollbars en todos los navegadores */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+.gallery__viewport::-webkit-scrollbar{ display: none; /* Chrome, Safari, Opera */ }
+
+/* Cada slide ocupa el ancho completo y hace snap al centro */
+.slide{
+  position: relative;
+  scroll-snap-align: center;
+  display: grid;
+  place-items: center;
+}
+.frame{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  background: #f5f5f5;
+}
+.frame img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display:block;
+  transition: transform .35s ease;
+}
+/* efecto sutil al presionar/teclear */
+.frame:active img{ transform: scale(.985); }
+.frame:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+/* Puntos de navegación */
+.gallery__dots{
+  margin-top: 12px;
+  display:flex; justify-content:center; gap:15px;
+}
+.gallery__dots a{
+  width: 15px; height:15px; border-radius:50%;
+  background: rgba(0,0,0,.25);
+  display:inline-block;
+  transition: transform .2s ease, background .2s ease;
+}
+.gallery__dots a:hover{ transform: scale(1.15); background: rgba(0,0,0,.45); }
+.gallery__dots a:focus-visible{ outline:none; box-shadow: var(--ring); transform: scale(1.1); }
+
+/* Estado activo aproximado usando :target (indicador) */
+#slide-1:target ~ .gallery__dots a[href="#slide-1"],
+#slide-2:target ~ .gallery__dots a[href="#slide-2"],
+#slide-3:target ~ .gallery__dots a[href="#slide-3"]{
+  background: linear-gradient(90deg, var(--brand, #0a84ff), var(--brand-2));
+}
+h2 {
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 1500;
+    letter-spacing: -0.01em;
+    color: var(--text, #111);
+  }
+
+/* Modelos */
+  .wrapper.tiles{
+    max-width: min(100%, 960px);
+    padding: 24px;
+    gap: 20px;
+  }
+  .tile{ padding: 22px; }
+  .tile h2{ font-size: clamp(1.5rem, 3vw, 2rem); }
+  .tile .figure img{ aspect-ratio: 16 / 9; }
+  .tile .btn{
+    max-width: 220px;
+    align-self: center;
+  }
+
+/* ===== Reafirmar escritorio (≥768px) ===== */
+@media (min-width: 768px){
+  .hamburger, .backdrop, .drawer{ display:none !important; }
+  .menu{ display:flex !important; }
+}
+
+/* ==== Ocultar selector de idioma del header en móvil (mantener el del drawer) ==== */
+@media (max-width: 767px){
+  .lang-trigger,
+  .lang-menu {
+    display: none !important;
+  }
+}
+
+/* ============================
+   FOOTER — responsive aún más compacto
+   ============================ */
+
+/* MÓVIL (<768px) */
+@media (max-width: 767px){
+  .footer{
+    padding: .8rem 0 .2rem;                 /* ↓ más junto */
+    font-size: clamp(13px, 3.3vw, 14.5px);
+    background: #000000eb;
+    padding-bottom: max(.4rem, env(safe-area-inset-bottom));
+  }
+
+  .footer-content{
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;                                /* ↓ antes 12px */
+    padding-inline: clamp(8px, 3vw, 14px);
+    text-align: center;
+  }
+
+  .footer-section{
+    width: 100%;
+    max-width: 440px;                        /* ↓ */
+    min-width: 0;
+  }
+
+  .footer-section h4{
+    font-size: clamp(13.5px, 3.8vw, 15.5px);
+    margin-bottom: .3rem;                    /* ↓ */
+    line-height: 1.2;
+  }
+
+  .footer-section p{
+    font-size: clamp(12px, 3.2vw, 13.5px);
+    margin-bottom: .3rem;                    /* ↓ */
+    line-height: 1.4;
+  }
+
+  .footer a{ word-break: break-word; }
+  .footer a:focus-visible{
+    outline: none;
+    box-shadow: var(--ring, 0 0 0 3px rgba(10,132,255,.35));
+    border-radius: 10px;
+  }
+
+  .footer-social a{
+    margin-right: .35rem;                    /* ↓ */
+    padding: 5px;                            /* ↓ */
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+  }
+  .footer-social a:last-child{ margin-right: 0; }
+
+  .footer-social a .footer-icon{
+    width: 22px; height: 22px;               /* ↓ */
+  }
+
+  .correo{ display: inline-block; }
+
+  .footer-bottom{
+    margin-top: .6rem;                        /* ↓ */
+    font-size: clamp(9.8px, 2.9vw, 10.8px);   /* ↓ */
+    padding-inline: 6px;                      /* ↓ */
+    opacity: .82;
+  }
+}
+
+/* TABLET (768px–1023px): más junto también */
+@media (min-width: 768px) and (max-width: 1023px){
+  .footer{
+    padding: 1.2rem 0 .6rem;                  /* ↓ */
+  }
+  .footer-content{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;                                /* ↓ */
+    padding-inline: 16px;                     /* ↓ */
+    text-align: left;
+  }
+  .footer-section{
+    flex: 1 1 42%;
+    min-width: 210px;                         /* ↓ */
+  }
+  .footer-section h4{ font-size: .93rem; margin-bottom: .3rem; }
+  .footer-section p{ font-size: .78rem; margin-bottom: .3rem; }
+  .footer-social a{ margin-right: .35rem; padding: 5px; }
+  .footer-social a .footer-icon{ width: 22px; height: 22px; }
+  .footer-bottom{ font-size: .68rem; margin-top: .55rem; }
+}
+
+/* Reduce motion reforzado para el footer */
+@media (prefers-reduced-motion: reduce){
+  .footer{ animation: none !important; transform: none !important; opacity: 1 !important; }
+}
+
+
+/* =======================================
+   FAQ — responsive (<768px) Neomodulus
+   ======================================= */
+@media (max-width: 767px){
+  /* Contenedor y espaciado general */
+  #sobre-nosotros{
+    padding: 38px 12px !important; /* ↓ compacto en móvil */
+    background: #f4f5f7;
+  }
+  #sobre-nosotros .nm-container{
+    padding-inline: 0; /* ya hay padding en la sección */
+  }
+
+  /* Titular + lead */
+  #sobre-nosotros h3{
+    font-size: clamp(20px, 5.2vw, 24px) !important;
+    margin-bottom: 6px !important;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  #sobre-nosotros p{
+    font-size: clamp(14px, 3.8vw, 15.5px) !important;
+    margin: 0 0 14px !important;
+    color: var(--text-muted, #4b5563);
+  }
+
+  /* Card contenedora */
+  #sobre-nosotros .nm-faq-card{
+    padding: 18px 14px !important;
+    border-radius: var(--radius-md, 14px) !important;
+    box-shadow: var(--elev-1, 0 6px 20px rgba(0,0,0,.06)) !important;
+    background: #fff;
+  }
+
+  /* Grid acordeón */
+  #sobre-nosotros .nm-accordion{
+    display: grid;
+    gap: 10px !important; /* ↓ separación */
+  }
+
+  /* Items */
+  #sobre-nosotros details{
+    padding: 12px 12px !important;          /* área de toque cómoda */
+    border-radius: var(--radius-md, 14px) !important;
+    border: 1px solid rgba(0,0,0,.06);
+    background: linear-gradient(135deg, rgba(100,100,100,.05), transparent);
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  #sobre-nosotros details[open]{
+    background: #ffffff !important;
+    border-color: color-mix(in oklab, var(--brand, #0a84ff) 22%, rgba(0,0,0,.06));
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  }
+  /* Indicador de énfasis al abrir */
+  #sobre-nosotros details[open] .nm-accordion__title::before{
+    content:"";
+    inline-size: 3px; block-size: 100%;
+    border-radius: 3px;
+    background: color-mix(in oklab, var(--brand, #0a84ff), #7c3aed 35%);
+    margin-inline-end: 8px;
+  }
+
+  /* Summary / cabecera de cada item */
+  #sobre-nosotros summary{
+    gap: 10px !important;
+    font-size: clamp(15px, 4.2vw, 16px) !important;
+    min-block-size: 48px;                    /* tamaño táctil */
+    padding-inline: 2px;
+  }
+  #sobre-nosotros summary:focus-visible{
+    outline: none;
+    box-shadow: var(--ring, 0 0 0 3px rgba(10,132,255,.35));
+    border-radius: 10px;
+  }
+
+  /* Título + punto */
+  #sobre-nosotros .nm-accordion__title{
+    gap: 10px !important;
+  }
+  #sobre-nosotros .nm-accordion__dot{
+    width: 10px; height: 10px;               /* ↓ */
+    box-shadow: 0 0 0 3px rgba(148,148,148,.18);
+    background: #1d201f63;
+    flex: 0 0 10px;
+  }
+
+  /* Chevron */
+  #sobre-nosotros .nm-accordion__chev{
+    width: 28px; height: 28px;               /* ↑ área táctil */
+    font-size: 1.15rem;
+    color: rgba(24,26,25,.6);
+    border-radius: 999px;
+  }
+  #sobre-nosotros .nm-accordion__chev:active{ transform: scale(.96); }
+
+  /* Contenido */
+  #sobre-nosotros .nm-accordion__content{
+    margin-top: 8px !important;
+    padding-right: 0 !important;
+    font-size: clamp(14px, 3.7vw, 15.5px) !important;
+    line-height: 1.65 !important;
+  }
+  #sobre-nosotros .nm-accordion__content ul{
+    padding-left: 1.05rem;
+    margin: 6px 0 2px;
+  }
+  #sobre-nosotros .nm-accordion__content li{
+    margin: 6px 0;
+  }
+}
+
+/* Tablet (768–1023px): aire moderado */
+@media (min-width: 768px) and (max-width: 1023px){
+  #sobre-nosotros{ padding: 52px 18px !important; }
+  #sobre-nosotros .nm-faq-card{ padding: 26px 22px !important; }
+  #sobre-nosotros .nm-accordion{ gap: 12px !important; }
+  #sobre-nosotros summary{ font-size: 1.02rem !important; }
+}
+
+/* Accesibilidad extra para usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce){
+  #sobre-nosotros details,
+  #sobre-nosotros .nm-accordion__chev{
+    transition: none !important;
+  }
+}
