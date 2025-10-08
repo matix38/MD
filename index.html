@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="favicon.ico" />
+  <title>Arquitectura modular y prefabricada | Neomodulus</title>
+  <meta name="keywords" content="casas prefabricadas, módulos, arquitectura modular, sostenibilidad, eficiencia energética" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav aria-label="Principal">
+      <div class="logo">
+        <img src="header/logo/logo.png" alt="Neomodulus logo" height="60" />
+      </div>
+
+      <!-- MENÚ -->
+      <ul id="primary-menu" class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+
+        <li role="none" data-has-submenu>
+          <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#!" tabindex="0">Modelos</a>
+          <!-- ===== SUBMENÚ: 4 tarjetas en fila, imagen grande arriba + texto debajo ===== -->
+          <ul class="submenu submenu--grid" aria-label="Submenú de modelos">
+            <li class="grid">
+              <div class="card">
+                <a href="#casas">
+                  <img src="img/36m2/Captura de pantalla 2025-08-25 195659.png" alt="Casas: viviendas completas" />
+                  <div class="meta">
+                    <div class="title">Casas</div>
+                    <div class="caption">Viviendas completas</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="#apple-home">
+                  <img src="img/Apple 27m2/ah1.png" alt="Apple Home 27 m²" />
+                  <div class="meta">
+                    <div class="title">Apple Home</div>
+                    <div class="caption">Acabados de alta calidad</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="#space-home">
+                  <img src="img/Apple 36m2/ah36.1.png" alt="Space Home" />
+                  <div class="meta">
+                    <div class="title">Space Home</div>
+                    <div class="caption">Diseño minimal y eficiente</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="#modulos">
+                  <img src="img/Mòduls/Captura de pantalla 2025-08-25 201258.png" alt="Módulos" />
+                  <div class="meta">
+                    <div class="title">Módulos</div>
+                    <div class="caption">Sistemas modulares</div>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        <li role="none"><a role="menuitem" href="components/about.html">Sobre nosotros</a></li>
+
+        <li role="none" data-has-submenu>
+          <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#!" tabindex="0">Contacto</a>
+          <ul class="submenu" aria-label="Submenú de contacto">
+            <li><a href="mailto:info@neomodulus.com">Email</a></li>
+            <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="right-controls">
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
+          <span aria-hidden="true" class="menu-toggle__bars"><span></span><span></span><span></span></span>
+        </button>
+
+        <div class="dropdown">
+          <button class="dropdown-button" type="button">Pedir cita</button>
+        </div>
+
+        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+          <input type="checkbox" id="lang-toggle" class="lang-toggle" aria-hidden="true" />
+          <label for="lang-toggle" class="lang-trigger" aria-haspopup="menu" aria-controls="lang-menu" aria-expanded="false">
+            <span class="globe-wrapper" role="img" aria-label="Seleccionar idioma">
+              <img src="icono.png" alt="Globo terráqueo" />
+            </span>
+          </label>
+          <nav id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+            <div class="lang-title">Selecciona idioma</div>
+            <ul class="lang-list">
+              <li class="lang-item" role="none">
+                <a role="menuitem" href="?lang=es" lang="es" hreflang="es" onclick="document.getElementById('lang-toggle').checked=false">
+                  <span class="flag" aria-hidden="true">🇪🇸</span>
+                  <span class="lang-meta"><span class="lang-name">Español</span></span>
+                </a>
+              </li>
+              <li class="lang-item" role="none">
+                <a role="menuitem" href="?lang=en" lang="en" hreflang="en" onclick="document.getElementById('lang-toggle').checked=false">
+                  <span class="flag" aria-hidden="true">🇬🇧</span>
+                  <span class="lang-meta"><span class="lang-name">English</span></span>
+                </a>
+              </li>
+              <li class="lang-item" role="none">
+                <a role="menuitem" href="?lang=fr" lang="fr" hreflang="fr" onclick="document.getElementById('lang-toggle').checked=false">
+                  <span class="flag" aria-hidden="true">🇫🇷</span>
+                  <span class="lang-meta"><span class="lang-name">Français</span></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="menu-backdrop" hidden></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery gallery--horizontal" id="gallery" aria-label="Galería horizontal de 3 imágenes">
+      <div class="gallery__viewport">
+        <article class="slide" id="slide-1" aria-roledescription="slide" aria-label="1 de 3">
+          <div class="frame">
+            <img src="gallery/casa playa 2.png" alt="Casa modular de dos pisos frente al lago" />
+          </div>
+        </article>
+        <article class="slide" id="slide-2" aria-roledescription="slide" aria-label="2 de 3">
+          <div class="frame">
+            <img src="gallery/casa playa.png" alt="Casa compacta sobre césped con lago y bosque" />
+          </div>
+        </article>
+        <article class="slide" id="slide-3" aria-roledescription="slide" aria-label="3 de 3">
+          <div class="frame">
+            <img src="gallery/modulomontaña.png" alt="Casa modular moderna con paneles solares junto al mar" />
+          </div>
+        </article>
+      </div>
+      <div class="gallery__dots" role="tablist" aria-label="Navegación de galería">
+        <a href="#slide-1" role="tab" aria-controls="slide-1" aria-label="Ir a la imagen 1"></a>
+        <a href="#slide-2" role="tab" aria-controls="slide-2" aria-label="Ir a la imagen 2"></a>
+        <a href="#slide-3" role="tab" aria-controls="slide-3" aria-label="Ir a la imagen 3"></a>
+      </div>
+    </section>
+
+    <!-- ================= Casas ================= -->
+    <section class="section" id="casas">
+      <h2>Casas</h2>
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#r2d2-1">Ver más</a>
+          <a class="info-btn" href="r2d2.html">Detalles</a>
+          <img class="thumb" src="img/18m2/Captura de pantalla 2025-08-25 194912.png" alt="Casa R2D2 vista 1" />
+          <figcaption class="meta"><b>Casa R2D2</b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r3d3-1">Ver más</a>
+          <a class="info-btn" href="r3d3.html">Detalles</a>
+          <img class="thumb" src="img/26m2/Captura de pantalla 2025-08-25 195301.png" alt="Casa R3D3 vista 1" />
+          <figcaption class="meta"><b>Casa R3D3</b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r4d4-1">Ver más</a>
+          <a class="info-btn" href="r4d4.html">Detalles</a>
+          <img class="thumb" src="img/36m2/Captura de pantalla 2025-08-25 195659.png" alt="Casa R4D4 vista 1" />
+          <figcaption class="meta"><b>Casa R4D4</b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r5d5-1">Ver más</a>
+          <a class="info-btn" href="r5d5.html">Detalles</a>
+          <img class="thumb" src="img/54m2/Captura de pantalla 2025-08-25 195855.png" alt="Casa R5D5 vista 1" />
+          <figcaption class="meta"><b>Casa R5D5</b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r6d6-1">Ver más</a>
+          <a class="info-btn" href="r6d6.html">Detalles</a>
+          <img class="thumb" src="img/72m2/Captura de pantalla 2025-08-25 200106.png" alt="Casa R6D6 vista 1" />
+          <figcaption class="meta"><b>Casa R6D6</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- ================= Apple Home ================= -->
+    <section class="section" id="apple-home">
+      <h2>Apple Home</h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#apple27-1">Ver más</a>
+          <a class="info-btn" href="apple27.html">Detalles</a>
+          <img class="thumb" src="img/Apple 27m2/ah1.png" alt="Apple Home 27m2 vista 1" />
+          <figcaption class="meta"><b>Apple Home 27m2</b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#apple36-1">Ver más</a>
+          <a class="info-btn" href="apple36.html">Detalles</a>
+          <img class="thumb" src="img/Apple 36m2/ah36.1.png" alt="Apple Home 36m2 vista 1" />
+          <figcaption class="meta"><b>Apple Home 36m2</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- ================= Space Home ================= -->
+    <section class="section" id="space-home">
+      <h2>Space Home</h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#space-1">Ver más</a>
+          <a class="info-btn" href="space-home.html">Detalles</a>
+          <img class="thumb" src="img/Apple 27m2/ah1.png" alt="Space Home vista 1" />
+          <figcaption class="meta"><b>Space Home</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- ================= Módulos ================= -->
+    <section class="section" id="modulos">
+      <h2>Módulos</h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#mod-1">Ver más</a>
+          <a class="info-btn" href="modulo.html">Detalles</a>
+          <img class="thumb" src="img/Mòduls/Captura de pantalla 2025-08-25 201258.png" alt="Módulo vista 1" />
+          <figcaption class="meta"><b>Módulo</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+  </main>
+
+  <!-- ===== VISOR ===== (sin cambios además de cierres con #) -->
+  <!-- ... (se mantiene igual que en tu última versión) ... -->
+
+  <script>
+  (function () {
+    function onKey(e){
+      if(e.key === 'Escape' && location.hash){
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('hashchange', function(e){ e.preventDefault?.(); });
+  })();
+  </script>
+</body>
+</html>
