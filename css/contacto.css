@@ -1,0 +1,185 @@
+/* ===== CONTACTO ===== */
+.contacto {
+  max-width: var(--container);
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.intro h1 {
+  font-size: 2.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.intro p {
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== FORMULARIO ===== */
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.form {
+  flex: 1 1 500px;
+  background: var(--light-gray);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: box-shadow var(--transition);
+}
+.form:hover {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.field {
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+input,
+textarea {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--black);
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border var(--transition), box-shadow var(--transition);
+}
+input:focus,
+textarea:focus {
+  border-color: var(--black);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+/* ===== BOTÓN NEGRO LETRA BLANCA ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 240px;
+  margin-top: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  background-color: #000;     /* Fondo negro */
+  color: #fff;                /* Texto blanco */
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #fff;     /* Fondo blanco */
+  color: #000;                /* Texto negro */
+  border-color: #000;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== CONTACT INFO ===== */
+.contact-info {
+  flex: 1 1 300px;
+  padding-top: 0.5rem;
+}
+.contact-info h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-info li {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: var(--gray);
+}
+.contact-info strong {
+  color: var(--black);
+}
+.whatsapp {
+  margin-top: 2rem;
+}
+.whatsapp a img {
+  width: 42px;
+  height: 42px;
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.7;
+  transition: all var(--transition);
+  margin-left: 150px;
+}
+.whatsapp a:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ===== ENLACES DE EMAIL SIN SUBRAYADO ===== */
+.contact-info a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color var(--transition), text-decoration var(--transition);
+}
+.contact-info a:hover {
+  color: var(--gray);
+  text-decoration: underline;
+}
+
+/* ===== VALIDACIÓN Y MENSAJES ===== */
+input.invalid,
+textarea.invalid {
+  border-color: #cc0000;
+  box-shadow: 0 0 0 3px rgba(204,0,0,0.15);
+}
+.error-message {
+  color: #cc0000;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  min-height: 1em;
+}
+.form-success {
+  margin-top: 1rem;
+  color: green;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .form-section {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+}
