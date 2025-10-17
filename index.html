@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="favicon.ico" />
+  <title>Arquitectura modular y prefabricada | Neomodulus</title>
+  <meta name="keywords" content="casas prefabricadas, módulos, arquitectura modular, sostenibilidad, eficiencia energética" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/scroll principal.css" />
+  <link rel="stylesheet" href="css/catalogo.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+  <header>
+  <nav aria-label="Principal">
+    <div class="logo">
+      <img src="img/header img/logo.png" alt="Neomodulus logo" height="60" />
+    </div>
+    <ul id="primary-menu" class="menu" role="menubar">
+      <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+      <li role="none" data-has-submenu>
+        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#!" tabindex="0">Modelos</a>
+        <ul id="submenu-modelos" class="submenu submenu--grid" aria-label="Submenú de modelos" role="menu">
+          <li class="grid" role="none">
+            <div class="card" role="none">
+              <a role="menuitem" href="#casas">
+                <img src="img/header img/submenu img/casa prefabricada.png" alt="Casas: viviendas completas" />
+                <div class="meta">
+                  <div class="title">Casas Prefabricadas</div>
+                  <div class="caption">Viviendas completas prefabricadas</div>
+                </div>
+              </a>
+            </div>
+            <div class="card" role="none">
+              <a role="menuitem" href="#apple-home">
+                <img src="img/header img/submenu img/apple house.png" alt="Apple Home 27 m²" />
+                <div class="meta">
+                  <div class="title">Apple House</div>
+                  <div class="caption">Acabados de alta calidad</div>
+                </div>
+              </a>
+            </div>
+            <div class="card" role="none">
+              <a role="menuitem" href="#space-home">
+                <img src="img/header img/submenu img/space house.jpg" alt="Space Home" />
+                <div class="meta">
+                  <div class="title">Space House</div>
+                  <div class="caption">Diseño minimal y eficiente</div>
+                </div>
+              </a>
+            </div>
+            <div class="card" role="none">
+              <a role="menuitem" href="#modulos">
+                <img src="img/header img/submenu img/estructuras modulares.png" alt="Módulos" />
+                <div class="meta">
+                  <div class="title">Estructuras Modulares</div>
+                  <div class="caption">Sistemas modulares</div>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li role="none"><a role="menuitem" href="#nosotros">Sobre Nosotros</a></li>
+      <li role="none" data-has-submenu>
+        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#!" tabindex="0">Contacto</a>
+        <ul id="submenu-contacto" class="submenu" aria-label="Submenú de contacto" role="menu">
+          <li role="none"><a role="menuitem" href="component/contacto.html">Email</a></li>
+          <li role="none"><a role="menuitem" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="right-controls">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
+        <span aria-hidden="true" class="menu-toggle__bars"><span></span><span></span><span></span></span>
+      </button>
+
+      <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+        <input type="checkbox" id="lang-toggle" class="lang-toggle" aria-hidden="true" />
+        <label for="lang-toggle" class="lang-trigger" aria-haspopup="menu" aria-controls="lang-menu" aria-expanded="false">
+          <span class="globe-wrapper" role="img" aria-label="Seleccionar idioma">
+            <img src="img/header img/trad/trad icono.png" alt="Globo terráqueo" />
+          </span>
+        </label>
+        <nav id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+          <div class="lang-title">Idioma</div>
+          <ul class="lang-list">
+            <li class="lang-item"><a href="?lang=es">Español</a></li>
+            <li class="lang-item"><a href="?lang=en">English</a></li>
+            <li class="lang-item"><a href="?lang=fr">Français</a></li>
+            <li class="lang-item"><a href="?lang=de">Deutsch</a></li>
+            <li class="lang-item"><a href="?lang=it">Italiano</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="menu-backdrop" hidden></div>
+  </nav>
+</header>
+
+  <main>
+   <!-- Galería -->
+<section class="gallery gallery--horizontal" id="gallery" aria-label="Galería horizontal de 3 imágenes">
+  
+  <button class="gallery-btn prev" aria-label="Imagen anterior">
+    <svg viewBox="0 0 24 24">
+      <path d="M15.5 3.5L7 12l8.5 8.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="gallery__viewport">
+    <article class="slide" id="slide-1">
+      <div class="frame">
+        <img src="img/scroll  principal img/scroll playa.png" alt="Casa modular de dos pisos frente al lago" />
+      </div>
+    </article>
+    <article class="slide" id="slide-2">
+      <div class="frame">
+        <img src="img/scroll  principal img/scroll prado.png" alt="Casa compacta sobre césped con lago y bosque" />
+      </div>
+    </article>
+    <article class="slide" id="slide-3">
+      <div class="frame">
+        <img src="img/scroll  principal img/scroll bloque.png" alt="Casa modular moderna con paneles solares junto al mar" />
+      </div>
+    </article>
+  </div>
+
+  <button class="gallery-btn next" aria-label="Imagen siguiente">
+    <svg viewBox="0 0 24 24">
+      <path d="M8.5 3.5L17 12l-8.5 8.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+</section>
+
+    <hr class="sep" />
+
+    <h3 class="descubre-titulo">Descubre nuestros modelos</h3>
+
+    <section class="section" id="casas">
+      <h2>Casas Prefabricadas <span class="badge">Catálogo</span></h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#r2d2-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/18m2/frontal.png" alt="Casa R2D2 vista 1" />
+          <figcaption class="meta"><b> X-o1 <span class="metros">18 m²</span></b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r3d3-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/26m2/frontal.png" alt="Casa R3D3 vista 1" />
+          <figcaption class="meta"><b>X-o2 <span class="metros">26 m²</span></b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="component/x-o1.html">Ver más</a>
+          <img class="thumb" src="img/catalogo img/36m2/frontal.png" alt="Casa R4D4 vista 1" />
+          <figcaption class="meta"><b>X-o3 <span class="metros">36 m²</span></b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r5d5-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/54m2/frontal.png" alt="Casa R5D5 vista 1" />
+          <figcaption class="meta"><b>X-o4 <span class="metros">54 m²</span></b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#r6d6-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/72m2/frontal.png" alt="Casa R6D6 vista 1" />
+          <figcaption class="meta"><b>X-o5 <span class="metros">72 m²</span></b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section class="section" id="apple-home">
+      <h2>Apple House <span class="badge">Catálogo</span></h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#apple27-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/Apple 27m2/ah1.png" alt="Apple Home 27m² vista 1" />
+          <figcaption class="meta"><b>Apple House <span class="metros">13 m²</span></b></figcaption>
+        </figure>
+
+        <figure class="card">
+          <a class="view" href="#apple36-1">Ver más</a>
+          <img class="thumb" src="img/catalogo img/Apple 36m2/ah36.1.png" alt="Apple Home 36m² vista 1" />
+          <figcaption class="meta"><b>Apple House <span class="metros">19 m²</span></b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section class="section" id="space-home">
+      <h2>Space House <span class="badge">Catálogo</span></h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#space-1">Ver más</a>
+          <img class="thumb" src="img/header img/submenu img/space house.jpg" alt="Space Home vista 1" />
+          <figcaption class="meta"><b>Space House <span class="metros">36 m²</span></b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section class="section" id="modulos">
+      <h2>Estructuras Modulares <span class="badge">Catálogo</span></h2>
+      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
+      <div class="grid">
+        <figure class="card">
+          <a class="view" href="#mod-1">Ver más</a>
+          <img class="thumb" src="img/header img/submenu img/estructuras modulares.png" alt="Módulo vista 1" />
+          <figcaption class="meta"><b>Módulo Base <span class="metros">15 m²</span></b></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+<!-- ===== BLOQUE SOBRE NOSOTROS ===== -->
+<section class="hero" id="nosotros">
+  <div class="hero-content" data-animate>
+    <h1>Sobre Nosotros</h1>
+    <div class="divider"></div>
+    <p>En <strong>Neomodulus</strong> fusionamos innovación, sostenibilidad y diseño contemporáneo para crear
+      espacios modulares que evolucionan con las personas y su entorno.</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-content" data-animate>
+    <h2>Nuestra Esencia</h2>
+    <p>Creemos que el futuro de la arquitectura está en la flexibilidad y la precisión industrial. 
+      Cada módulo que diseñamos responde a una filosofía de equilibrio entre forma, función y eficiencia energética.</p>
+    <p>Nuestro enfoque combina la experiencia técnica con una visión estética clara, buscando siempre una conexión 
+      entre la naturaleza, la tecnología y la habitabilidad humana.</p>
+
+    <div class="about-values">
+      <div class="value">
+        <i class="fas fa-cube"></i>
+        <h3>Experiencia Modular</h3>
+        <p>Más de una década diseñando soluciones adaptables que reducen tiempos y maximizan la calidad constructiva.</p>
+      </div>
+      <div class="value">
+        <i class="fas fa-drafting-compass"></i>
+        <h3>Diseño Personalizado</h3>
+        <p>Proyectos únicos que reflejan la identidad de cada cliente, con una visión funcional y estética coherente.</p>
+      </div>
+      <div class="value">
+        <i class="fas fa-leaf"></i>
+        <h3>Sostenibilidad Real</h3>
+        <p>Usamos materiales de bajo impacto, procesos limpios y tecnología de eficiencia energética avanzada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="faq-shell">
+    <h2>Preguntas frecuentes</h2>
+    <h3>Resuelve tus dudas antes de construir con nosotros</h3>
+    <p class="sub">Transparencia, calidad y acompañamiento en cada fase del proyecto.</p>
+    <div class="faq faq-vertical">
+      <div class="faq-list">
+
+        <details><summary><i class="fas fa-industry"></i> ¿Cuánto tardáis en fabricar un módulo o edificio prefabricado?</summary>
+          <div class="content"><p>El plazo total de fabricación y logística suele ser de entre 8 y 16 semanas...</p></div></details>
+
+        <details><summary><i class="fas fa-truck-moving"></i> ¿Vuestros productos son móviles o fijos?</summary>
+          <div class="content"><p>Disponemos de productos tanto móviles como fijos...</p></div></details>
+
+        <details><summary><i class="fas fa-cubes"></i> ¿Con qué materiales trabajáis?</summary>
+          <div class="content"><p>Utilizamos paneles aislantes de poliuretano expandido...</p></div></details>
+
+        <details><summary><i class="fas fa-file-signature"></i> ¿Necesito permiso de obras?</summary>
+          <div class="content"><p>Depende del tipo de instalación y de la normativa municipal...</p></div></details>
+
+        <details><summary><i class="fas fa-shipping-fast"></i> ¿Hacéis el transporte hasta el cliente final?</summary>
+          <div class="content"><p>Sí. Ofrecemos un servicio completo de logística y transporte...</p></div></details>
+
+        <details><summary><i class="fas fa-pencil-ruler"></i> ¿Se pueden personalizar los módulos?</summary>
+          <div class="content"><p>Sí. Nuestros productos permiten adaptar distribuciones...</p></div></details>
+
+        <details><summary><i class="fas fa-building"></i> ¿Qué usos pueden tener vuestros productos?</summary>
+          <div class="content"><p>Nuestros módulos pueden utilizarse para múltiples aplicaciones...</p></div></details>
+
+        <details><summary><i class="fas fa-tools"></i> ¿Qué tipo de mantenimiento necesitan?</summary>
+          <div class="content"><p>Nuestros módulos requieren muy poco mantenimiento...</p></div></details>
+
+        <details><summary><i class="fas fa-shield-alt"></i> ¿Tienen garantía vuestros productos?</summary>
+          <div class="content"><p>Sí. Todos nuestros productos están cubiertos por una garantía...</p></div></details>
+
+        <details><summary><i class="fas fa-exchange-alt"></i> ¿Se pueden reubicar los módulos una vez instalados?</summary>
+          <div class="content"><p>Los módulos pueden desmontarse y trasladarse...</p></div></details>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Neomodulus</h4>
+        <p>Arquitectura modular: viviendas modernas, eficientes y sostenibles.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Tel: +34 123 456 789<br />
+          <a href="contacto.html">info@neomodulus.com</a><br />
+          <a href="mailto:marcroca@neomodulus.com">marcroca@neomodulus.com</a>
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><img src="img/footer img/ig icono.png" alt="Instagram" class="footer-icon" /></a>
+          <a href="#" aria-label="Wallapop"><img src="img/footer img/whatsapp icono.png" alt="Wallapop" class="footer-icon" /></a>
+          <a href="https://wa.me/34123456789" aria-label="WhatsApp" target="_blank" rel="noopener"><img src="img/footer img/whatsapp icono.png" alt="WhatsApp" class="footer-icon" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Neomodulus. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a2e0e9e6a0.js" crossorigin="anonymous"></script>
+
+  <!-- ===== JS ORIGINAL + GALERÍA FUNCIONAL ===== -->
+  <script>
+  /* --- Menús, idioma, año, etc. --- */
+  (function(){ /* ...todo tu código original aquí... */ })();
+
+  /* === 🆕 Script funcional del carrusel === */
+  (function(){
+    const gallery=document.querySelector('.gallery--horizontal');
+    if(!gallery)return;
+    const viewport=gallery.querySelector('.gallery__viewport');
+    const slides=Array.from(viewport.querySelectorAll('.slide'));
+    const prevBtn=gallery.querySelector('.gallery-btn.prev');
+    const nextBtn=gallery.querySelector('.gallery-btn.next');
+    let currentIndex=0;
+    function showSlide(i){
+      if(i<0)i=slides.length-1;
+      if(i>=slides.length)i=0;
+      currentIndex=i;
+      viewport.scrollTo({left:slides[i].offsetLeft,behavior:'smooth'});
+    }
+    prevBtn.addEventListener('click',()=>showSlide(currentIndex-1));
+    nextBtn.addEventListener('click',()=>showSlide(currentIndex+1));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='ArrowLeft')showSlide(currentIndex-1);
+      if(e.key==='ArrowRight')showSlide(currentIndex+1);
+    });
+    viewport.addEventListener('scroll',()=>{
+      const c=viewport.scrollLeft+viewport.offsetWidth/2;
+      const i=slides.findIndex(s=>{
+        const r=s.offsetLeft+s.offsetWidth/2;
+        return Math.abs(c-r)<s.offsetWidth/2;
+      });
+      if(i>=0)currentIndex=i;
+    });
+  })();
+
+
+  (function () {
+    function onKey(e){
+      if(e.key === 'Escape' && location.hash){
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('hashchange', function(e){ e.preventDefault?.(); });
+  })();
+
+  (function(){
+    const OPEN_DELAY = 80;
+    const CLOSE_DELAY = 220;
+
+    const items = document.querySelectorAll('.menu > li[data-has-submenu]');
+    const header = document.querySelector('header');
+
+    items.forEach(li => {
+      const trigger = li.querySelector(':scope > a[aria-haspopup="true"]');
+      const panel   = li.querySelector(':scope > .submenu');
+      if (!trigger || !panel) return;
+
+      let openTimer = null;
+      let closeTimer = null;
+
+      const open = () => {
+        clearTimeout(closeTimer);
+        if (li.classList.contains('is-open')) return;
+        openTimer = setTimeout(() => {
+          li.classList.add('is-open');
+          trigger.setAttribute('aria-expanded','true');
+          trigger.classList.add('submenu-disabled');
+          header && header.classList.add('submenu-open');
+        }, OPEN_DELAY);
+      };
+
+      const close = () => {
+        clearTimeout(openTimer);
+        closeTimer = setTimeout(() => {
+          li.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded','false');
+          trigger.classList.remove('submenu-disabled');
+          const anyOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
+          if (!anyOpen && header) header.classList.remove('submenu-open');
+        }, CLOSE_DELAY);
+      };
+
+      li.addEventListener('mouseenter', open);
+      li.addEventListener('mouseleave', close);
+
+      trigger.addEventListener('focus', open);
+      panel.addEventListener('focusin', () => { clearTimeout(closeTimer); });
+      panel.addEventListener('focusout', (e) => {
+        if (!li.contains(e.relatedTarget)) close();
+      });
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (li.classList.contains('is-open')) {
+          close();
+        } else {
+          open();
+        }
+      });
+
+      panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      trigger.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      panel.addEventListener('mouseleave', close);
+
+      li.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          close();
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      const anyOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
+      if (!anyOpen) return;
+      if (!anyOpen.contains(e.target)) {
+        anyOpen.classList.remove('is-open');
+        const trigger = anyOpen.querySelector(':scope > a[aria-haspopup="true"]');
+        trigger && trigger.setAttribute('aria-expanded','false');
+        trigger && trigger.classList.remove('submenu-disabled');
+        const anotherOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
+        const header = document.querySelector('header');
+        if (!anotherOpen && header) header.classList.remove('submenu-open');
+      }
+    });
+  })();
+
+  (function(){
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('primary-menu');
+    const backdrop = document.querySelector('.menu-backdrop');
+
+    if(!btn || !menu || !backdrop) return;
+
+    function open(){
+      btn.classList.add('is-open');
+      menu.classList.add('is-open');
+      btn.setAttribute('aria-expanded','true');
+      backdrop.hidden = false;
+    }
+    function close(){
+      btn.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      backdrop.hidden = true;
+    }
+
+    btn.addEventListener('click', () => {
+      if(menu.classList.contains('is-open')) close(); else open();
+    });
+    backdrop.addEventListener('click', close);
+  })();
+
+  (function(){
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  /* ====== 🆕 Menú de idioma (hover con retardo suave) ====== */
+  (function(){
+    const switcher = document.querySelector('.lang-switcher');
+    const trigger  = document.querySelector('.lang-trigger');
+    const menu     = document.querySelector('.lang-menu');
+
+    if (!switcher || !trigger || !menu) return;
+
+    let closeTimer = null;
+    const CLOSE_DELAY = 200; // retrasa el cierre para que no desaparezca al pasar el ratón
+
+    function openMenu(){
+      clearTimeout(closeTimer);
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.style.opacity = '1';
+      menu.style.pointerEvents = 'auto';
+      menu.style.transform = 'translateY(0)';
+    }
+
+    function closeMenu(){
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.style.opacity = '0';
+        menu.style.pointerEvents = 'none';
+        menu.style.transform = 'translateY(-8px)';
+      }, CLOSE_DELAY);
+    }
+
+    switcher.addEventListener('mouseenter', openMenu);
+    switcher.addEventListener('mouseleave', closeMenu);
+    switcher.addEventListener('focusin', openMenu);
+    switcher.addEventListener('focusout', (e) => {
+      if (!switcher.contains(e.relatedTarget)) closeMenu();
+    });
+
+    // Evita clics
+    trigger.addEventListener('click', (e) => e.preventDefault());
+  })();
+  </script>
+</body>
+</html>
