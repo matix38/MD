@@ -1,4 +1,10 @@
 (() => {
+  const root = document.documentElement;
+  if (root) {
+    root.classList.remove('no-js');
+    root.classList.add('js');
+  }
+
   const heroSlides = [
     {
       id: 'oceano',
