@@ -1,25 +1,21 @@
 /* =========================
    Catálogo y secciones
    ========================= */
+.section {
+  max-width: var(--container, 1200px);
+  margin: 0 auto clamp(48px, 10vw, 120px);
+  padding: 0 clamp(16px, 4vw, 36px);
+}
+
 .section .grid {
   display: grid;
-  gap: var(--gap);
-  grid-template-columns: repeat(12, 1fr);
-  margin-left: 100px;
-}
-@media (max-width: 1000px) {
-  .section .grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .section .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  gap: clamp(16px, 3vw, 32px);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 0;
 }
 
 .card {
-  grid-column: span 4;
+  grid-column: auto;
   position: relative;
   overflow: hidden;
   border: 1px solid var(--ink-soft);
@@ -27,6 +23,8 @@
   background: var(--white);
   transition: transform 0.18s ease;
   padding-bottom: 70px;
+  max-width: 360px;
+  margin: 0 auto;
 }
 .card:hover {
   transform: translateY(-3px);
@@ -95,13 +93,13 @@
 .descubre-titulo {
   text-align: center;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3.4rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 300;
   color: var(--black-matte);
   letter-spacing: -0.6px;
-  margin: 200px 0 120px; /* 🔹 Aumentado el margen inferior */
+  margin: clamp(60px, 12vw, 160px) auto clamp(40px, 8vw, 120px);
   line-height: 1.1;
-  margin-left: 40px;
+  padding: 0 clamp(16px, 6vw, 40px);
 }
 
 /* =========================
@@ -109,11 +107,12 @@
    ========================= */
 .section h2 {
   text-align: center;
-  margin-left: 140px;
+  margin: 0 auto 12px;
 }
 .section .lead {
   text-align: center;
-  margin-left: 100px;
+  margin: 0 auto 24px;
+  max-width: 60ch;
 }
 .badge {
   border: 1px solid var(--ink-soft);
@@ -121,4 +120,15 @@
   padding: 6px 12px;
   font-size: 0.82rem;
   margin-left: 8px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding-bottom: 58px;
+  }
+
+  .view {
+    right: 10px;
+    bottom: 40px;
+  }
 }

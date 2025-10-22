@@ -116,7 +116,10 @@ nav[aria-label="Principal"]{
   position: relative;
 }
 .logo{ display: inline-flex; align-items: center; gap: 10px; }
-.logo img{ block-size:75px; object-fit:contain; margin-left: -160px;}
+.logo img{
+  max-block-size: clamp(48px, 6vw, 72px);
+  object-fit: contain;
+}
 
 /* ======================
    Menú principal
@@ -128,8 +131,9 @@ nav[aria-label="Principal"]{
   justify-self: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-left: -220px;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 1.6vw, 18px);
 }
 .menu > li{ position: relative; }
 .menu > li > a{
@@ -171,13 +175,13 @@ nav[aria-label="Principal"]{
    ====================== */
 .submenu{
   position: absolute;
-  inset-inline-start: 35%;
+  inset-inline-start: 50%;
   inset-block-start: calc(100% + 10px);
   transform: translateX(-50%) translateY(-8px);
   border-radius: var(--radius-lg);
   padding: 12px;
   min-inline-size: 220px;
-  max-inline-size: min(92vw, 1200px);
+  max-inline-size: min(92vw, 1040px);
   opacity: 0;
   pointer-events: none;
   transform-origin: top center;
@@ -205,10 +209,9 @@ li[data-has-submenu].is-open > .submenu,
 
 /* ====== Submenú “Modelos” ====== */
 .submenu--grid{
-  min-inline-size: 820px;
+  min-inline-size: min(820px, calc(100vw - 32px));
   padding: 16px;
   margin: 0;
-  margin-left: 20px;
   margin-top: -10px;
 }
 .submenu--grid .grid{
@@ -217,7 +220,7 @@ li[data-has-submenu].is-open > .submenu,
   gap: 16px;
 }
 .submenu .card{
-  flex: 0 0 240px;
+  flex: 1 1 220px;
   border-color: #ffffff00;
   border-radius: 12px;
   overflow: hidden;
@@ -258,7 +261,7 @@ li[data-has-submenu].is-open > .submenu,
 /* ======================
    Selector de idioma (negro sólido, título centrado y grande)
    ====================== */
-.lang-switcher{ position: relative; display: inline-block; z-index: 60; margin-left: -50px; }
+.lang-switcher{ position: relative; display: inline-block; z-index: 60; }
 .lang-toggle{ position: absolute; opacity: 0; inset: 0; pointer-events: none; }
 .lang-trigger{
   cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
@@ -266,14 +269,14 @@ li[data-has-submenu].is-open > .submenu,
 }
 .lang-trigger:hover{ transform: translateY(-1px) scale(1.02); }
 .lang-trigger:active{ transform: scale(.98); }
-.lang-trigger img{ inline-size: 38px; block-size: 38px; display: block; filter: drop-shadow(0 2px 8px rgba(90,176,255,.25)); margin-left: 150px; }
+.lang-trigger img{ inline-size: 38px; block-size: 38px; display: block; filter: drop-shadow(0 2px 8px rgba(90,176,255,.25)); }
 .globe-wrapper{ inline-size: 70px; block-size: 50px; border-radius: 50%; display: grid; place-items: center; }
 
 /* Menú idioma */
 .lang-menu{
   position: absolute;
   inset-block-start: 62px;
-  inset-inline-end: -130px;
+  inset-inline-end: 0;
   inline-size: min(240px, 92vw);
   background:  rgb(42, 42, 42);
   border-radius: 10px;
@@ -369,6 +372,8 @@ li[data-has-submenu].is-open > .submenu,
     z-index: 60;
     padding: 12px;
     gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
   }
   #primary-menu.menu.is-open{
     transform: translateY(0);
@@ -397,6 +402,23 @@ li[data-has-submenu].is-open > .submenu,
 
   nav[aria-label="Principal"]{ grid-template-columns: auto 1fr; }
   .menu{ order: 3; }
+}
+
+@media (max-width: 1200px){
+  nav[aria-label="Principal"]{ gap: 12px; }
+  .menu{ justify-self: start; }
+  .submenu--grid .grid{ flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 1024px){
+  .right-controls{ gap: 8px; }
+  .submenu{ inset-inline-start: 50%; max-inline-size: min(96vw, 860px); }
+}
+
+@media (max-width: 720px){
+  .menu{ justify-content: flex-start; }
+  .submenu--grid .grid{ gap: 12px; }
+  .submenu .card{ flex-basis: 100%; }
 }
 
 /* =========================
