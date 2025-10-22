@@ -525,6 +525,7 @@ main {
 }
 
 .js .catalog__section.is-visible {
+.catalog__section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -583,6 +584,8 @@ main {
 
 .js .model-card.is-visible,
 .js .model-card.reveal-on-scroll.is-visible {
+.model-card.is-visible,
+.model-card.reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1034,6 +1037,9 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
   transition: opacity var(--transition), transform var(--transition);
   z-index: 850;
 }
@@ -1053,6 +1059,7 @@ main {
 }
 
 .js .floating-contact.is-visible {
+.floating-contact.is-visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -1070,6 +1077,7 @@ main {
 }
 
 .js .reveal-on-scroll.is-visible {
+.reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
