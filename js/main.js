@@ -63,6 +63,12 @@
   const CLOSE_DELAY = 220;
   const items = document.querySelectorAll('.menu > li[data-has-submenu]');
   const header = document.querySelector('header');
+  const desktopMq = window.matchMedia('(min-width: 901px)');
+  const hoverMq = window.matchMedia('(hover: hover)');
+
+  if(!items.length) return;
+
+  const isDesktop = () => desktopMq.matches;
 
   items.forEach(li => {
     const trigger = li.querySelector(':scope > a[aria-haspopup="true"]');
@@ -72,66 +78,93 @@
     let openTimer = null;
     let closeTimer = null;
 
-    const open = () => {
-      clearTimeout(closeTimer);
-      if (li.classList.contains('is-open')) return;
-      openTimer = setTimeout(() => {
-        li.classList.add('is-open');
-        trigger.setAttribute('aria-expanded','true');
+    const commitOpen = () => {
+      li.classList.add('is-open');
+      trigger.setAttribute('aria-expanded','true');
+      if(isDesktop()){
         trigger.classList.add('submenu-disabled');
         header && header.classList.add('submenu-open');
-      }, OPEN_DELAY);
+      }
     };
 
-    const close = () => {
-      clearTimeout(openTimer);
-      closeTimer = setTimeout(() => {
-        li.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded','false');
-        trigger.classList.remove('submenu-disabled');
+    const commitClose = () => {
+      li.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded','false');
+      trigger.classList.remove('submenu-disabled');
+      if(header){
         const anyOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
-        if (!anyOpen && header) header.classList.remove('submenu-open');
-      }, CLOSE_DELAY);
+        if(!anyOpen){
+          header.classList.remove('submenu-open');
+        }
+      }
     };
 
-    li.addEventListener('mouseenter', open);
-    li.addEventListener('mouseleave', close);
-    trigger.addEventListener('focus', open);
+    const open = (immediate = false) => {
+      clearTimeout(closeTimer);
+      if (li.classList.contains('is-open')) return;
+      const delay = (!immediate && isDesktop()) ? OPEN_DELAY : 0;
+      openTimer = setTimeout(commitOpen, delay);
+    };
+
+    const close = (immediate = false) => {
+      clearTimeout(openTimer);
+      const delay = (!immediate && isDesktop()) ? CLOSE_DELAY : 0;
+      closeTimer = setTimeout(commitClose, delay);
+    };
+
+    if(hoverMq.matches){
+      li.addEventListener('mouseenter', () => open());
+      li.addEventListener('mouseleave', () => close());
+      trigger.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      panel.addEventListener('mouseleave', () => close());
+    }
+
+    trigger.addEventListener('focus', () => open(true));
     panel.addEventListener('focusin', () => { clearTimeout(closeTimer); });
-    panel.addEventListener('focusout', (e) => {
-      if (!li.contains(e.relatedTarget)) close();
+    panel.addEventListener('focusout', (event) => {
+      if (!li.contains(event.relatedTarget)) close(true);
     });
 
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (li.classList.contains('is-open')) close(); else open();
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (li.classList.contains('is-open')) close(true); else open(true);
     });
 
-    panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
-    trigger.addEventListener('mouseenter', () => clearTimeout(closeTimer));
-    panel.addEventListener('mouseleave', close);
-
-    li.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        close();
+    li.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        close(true);
         trigger.focus();
       }
     });
   });
 
-  document.addEventListener('click', (e) => {
-    const anyOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
-    if (!anyOpen) return;
-    if (!anyOpen.contains(e.target)) {
-      anyOpen.classList.remove('is-open');
-      const trigger = anyOpen.querySelector(':scope > a[aria-haspopup="true"]');
-      trigger && trigger.setAttribute('aria-expanded','false');
-      trigger && trigger.classList.remove('submenu-disabled');
-      const anotherOpen = document.querySelector('.menu > li[data-has-submenu].is-open');
-      const header = document.querySelector('header');
-      if (!anotherOpen && header) header.classList.remove('submenu-open');
-    }
+  const closeAll = () => {
+    items.forEach(li => {
+      if(!li.classList.contains('is-open')) return;
+      li.classList.remove('is-open');
+      const trigger = li.querySelector(':scope > a[aria-haspopup="true"]');
+      if(trigger){
+        trigger.setAttribute('aria-expanded','false');
+        trigger.classList.remove('submenu-disabled');
+      }
+    });
+    if(header) header.classList.remove('submenu-open');
+  };
+
+  document.addEventListener('click', (event) => {
+    if(event.target.closest('.menu > li[data-has-submenu]')) return;
+    closeAll();
   });
+
+  const handleResize = () => {
+    closeAll();
+  };
+  if(typeof desktopMq.addEventListener === 'function'){
+    desktopMq.addEventListener('change', handleResize);
+  }else if(typeof desktopMq.addListener === 'function'){
+    desktopMq.addListener(handleResize);
+  }
 })();
 
 /* === Menú responsive (móvil) === */
@@ -139,26 +172,74 @@
   const btn = document.querySelector('.menu-toggle');
   const menu = document.getElementById('primary-menu');
   const backdrop = document.querySelector('.menu-backdrop');
+  const root = document.documentElement;
+  const body = document.body;
+  const mq = window.matchMedia('(max-width: 900px)');
 
   if(!btn || !menu || !backdrop) return;
+
+  const activateBackdrop = () => {
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add('is-active'));
+  };
+
+  const deactivateBackdrop = () => {
+    backdrop.classList.remove('is-active');
+    setTimeout(() => {
+      if(!menu.classList.contains('is-open')){
+        backdrop.hidden = true;
+      }
+    }, 220);
+  };
 
   function open(){
     btn.classList.add('is-open');
     menu.classList.add('is-open');
     btn.setAttribute('aria-expanded','true');
-    backdrop.hidden = false;
+    activateBackdrop();
+    root.classList.add('menu-open');
+    body.classList.add('menu-open');
   }
   function close(){
     btn.classList.remove('is-open');
     menu.classList.remove('is-open');
     btn.setAttribute('aria-expanded','false');
-    backdrop.hidden = true;
+    deactivateBackdrop();
+    root.classList.remove('menu-open');
+    body.classList.remove('menu-open');
   }
 
   btn.addEventListener('click', () => {
     if(menu.classList.contains('is-open')) close(); else open();
   });
+
   backdrop.addEventListener('click', close);
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape' && menu.classList.contains('is-open')){
+      close();
+    }
+  });
+
+  menu.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if(!link) return;
+    const parentItem = link.closest('li[data-has-submenu]');
+    const controlsSubmenu = link.getAttribute('aria-haspopup') === 'true';
+    if(parentItem && controlsSubmenu){
+      return;
+    }
+    if(menu.classList.contains('is-open')){
+      close();
+    }
+  });
+
+  const handleChange = (e) => { if(!e.matches) close(); };
+  if(typeof mq.addEventListener === 'function'){
+    mq.addEventListener('change', handleChange);
+  }else if(typeof mq.addListener === 'function'){
+    mq.addListener(handleChange);
+  }
 })();
 
 /* === Año automático en el footer === */
@@ -171,39 +252,68 @@
 (function(){
   const switcher = document.querySelector('.lang-switcher');
   const trigger  = document.querySelector('.lang-trigger');
-  const menu     = document.querySelector('.lang-menu');
 
-  if (!switcher || !trigger || !menu) return;
+  if (!switcher || !trigger) return;
 
   let closeTimer = null;
   const CLOSE_DELAY = 200;
+  const hoverMq = window.matchMedia('(hover: hover)');
+  const touchMq = window.matchMedia('(pointer: coarse)');
 
-  function openMenu(){
+  const openMenu = () => {
     clearTimeout(closeTimer);
+    switcher.classList.add('is-open');
     trigger.setAttribute('aria-expanded', 'true');
-    menu.style.opacity = '1';
-    menu.style.pointerEvents = 'auto';
-    menu.style.transform = 'translateY(0)';
-  }
+  };
 
-  function closeMenu(){
+  const closeMenu = (useDelay = hoverMq.matches) => {
     clearTimeout(closeTimer);
-    closeTimer = setTimeout(() => {
+    const run = () => {
+      switcher.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
-      menu.style.opacity = '0';
-      menu.style.pointerEvents = 'none';
-      menu.style.transform = 'translateY(-8px)';
-    }, CLOSE_DELAY);
+    };
+    if(useDelay){
+      closeTimer = setTimeout(run, CLOSE_DELAY);
+    }else{
+      run();
+    }
+  };
+
+  if(hoverMq.matches){
+    switcher.addEventListener('mouseenter', openMenu);
+    switcher.addEventListener('mouseleave', () => closeMenu(true));
   }
 
-  switcher.addEventListener('mouseenter', openMenu);
-  switcher.addEventListener('mouseleave', closeMenu);
   switcher.addEventListener('focusin', openMenu);
-  switcher.addEventListener('focusout', (e) => {
-    if (!switcher.contains(e.relatedTarget)) closeMenu();
+  switcher.addEventListener('focusout', (event) => {
+    if (!switcher.contains(event.relatedTarget)) closeMenu(false);
   });
 
-  trigger.addEventListener('click', (e) => e.preventDefault());
+  const toggleOnClick = (event) => {
+    event.preventDefault();
+    if (switcher.classList.contains('is-open')) {
+      closeMenu(false);
+    } else {
+      openMenu();
+    }
+  };
+
+  if(touchMq.matches || !hoverMq.matches){
+    trigger.addEventListener('click', toggleOnClick);
+    document.addEventListener('click', (event) => {
+      if (!switcher.contains(event.target)) {
+        closeMenu(false);
+      }
+    });
+  }else{
+    trigger.addEventListener('click', (event) => event.preventDefault());
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape'){
+      closeMenu(false);
+    }
+  });
 })();
 
 /* === Scroll suave para anclas internas === */

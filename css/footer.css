@@ -42,9 +42,9 @@
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: clamp(60px, 6vw, 100px) 0;
+  padding: clamp(60px, 6vw, 100px) clamp(16px, 6vw, 48px);
 }
-#faq .faq-shell{ max-width: var(--container, 1200px); margin: 0 auto; padding: 0 20px; }
+#faq .faq-shell{ max-width: var(--container, 1200px); margin: 0 auto; padding: 0 clamp(12px, 4vw, 28px); }
 #faq h2, #faq h3, #faq .sub{ text-align:center; color:#fff; }
 #faq h2{ font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:8px; letter-spacing:.5px; }
 #faq h3{ font-weight:400; opacity:.9; margin-bottom:18px; }
