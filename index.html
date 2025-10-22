@@ -1,379 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" href="favicon.ico" />
-  <title>Arquitectura modular y prefabricada | Neomodulus</title>
-  <meta name="keywords" content="casas prefabricadas, módulos, arquitectura modular, sostenibilidad, eficiencia energética" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/scroll principal.css" />
-  <link rel="stylesheet" href="css/catalogo.css" />
-  <link rel="stylesheet" href="css/about.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neomodulus | Arquitectura modular inteligente</title>
+    <meta
+      name="description"
+      content="Neomodulus diseña espacios modulares de alto rendimiento con acabados premium, tecnología inteligente y entregas rápidas."
+    />
+    <link rel="icon" type="image/png" href="assets/logo/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<body>
-  <header>
-    <nav aria-label="Principal">
-      <div class="logo">
-        <img src="img/header img/logo.png" alt="Neomodulus logo" height="60" />
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="#hero" data-scroll>
+          <img src="assets/logo/logo.png" alt="Neomodulus" loading="lazy" />
+          <span>Neomodulus</span>
+        </a>
+
+        <nav class="site-nav" data-nav aria-label="Principal">
+          <ul>
+            <li><a href="#hero" data-scroll>Inicio</a></li>
+            <li><a href="#catalogo" data-scroll>Modelos</a></li>
+            <li><a href="#nosotros" data-scroll>Nosotros</a></li>
+            <li><a href="#faq" data-scroll>FAQ</a></li>
+            <li><a href="#contacto" data-scroll>Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn--ghost" href="https://wa.me/34658266368" target="_blank" rel="noreferrer">
+            Whatsapp
+          </a>
+          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="menu-movil">
+            <span class="sr-only">Abrir menú</span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
 
-      <ul id="primary-menu" class="menu" role="menubar">
-        <li role="none"><a role="menuitem" href="index.html">Inicio</a></li>
+      <nav class="mobile-nav" id="menu-movil" data-mobile-nav aria-label="Menú móvil">
+        <ul>
+          <li><a href="#hero" data-scroll>Inicio</a></li>
+          <li><a href="#catalogo" data-scroll>Modelos</a></li>
+          <li><a href="#nosotros" data-scroll>Nosotros</a></li>
+          <li><a href="#faq" data-scroll>FAQ</a></li>
+          <li><a href="#contacto" data-scroll>Contacto</a></li>
+        </ul>
+        <div class="mobile-nav__cta">
+          <a href="mailto:info@neomodulus.com">info@neomodulus.com</a>
+          <a href="https://wa.me/34658266368" target="_blank" rel="noreferrer">+34 658 26 63 68</a>
+        </div>
+      </nav>
+    </header>
 
-        <!-- MODELOS -->
-        <li role="none" data-has-submenu>
-          <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#casas" tabindex="0">Modelos</a>
-          <ul id="submenu-modelos" class="submenu submenu--grid" aria-label="Submenú de modelos" role="menu">
-            <li class="grid" role="none">
-              <div class="card" role="none">
-                <a role="menuitem" href="index.html#casas">
-                  <img src="img/header img/submenu img/casa prefabricada.png" alt="Casas: viviendas completas" />
-                  <div class="meta">
-                    <div class="title">Casas Prefabricadas</div>
-                    <div class="caption">Viviendas completas prefabricadas</div>
-                  </div>
-                </a>
+    <main id="contenido">
+      <section class="hero" id="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow">Arquitectura modular inteligente</span>
+            <h1>Diseñamos espacios habitables que se montan en semanas, no en meses.</h1>
+            <p>
+              Modelos adaptables, tecnología integrada y acabados premium listos para entregar llave en mano. Cada módulo se
+              fabrica en nuestro hub y llega totalmente equipado.
+            </p>
+            <div class="hero__actions">
+              <a class="btn" href="#catalogo" data-scroll>Explorar modelos</a>
+              <a class="btn btn--ghost" href="https://wa.me/34658266368" target="_blank" rel="noreferrer">Agenda una demo</a>
+            </div>
+            <dl class="hero__stats">
+              <div>
+                <dt>72 m²</dt>
+                <dd>máximo por módulo</dd>
               </div>
-              <div class="card" role="none">
-                <a role="menuitem" href="index.html#apple-home">
-                  <img src="img/header img/submenu img/apple house.png" alt="Apple Home 27 m²" />
-                  <div class="meta">
-                    <div class="title">Apple House</div>
-                    <div class="caption">Acabados de alta calidad</div>
-                  </div>
-                </a>
+              <div>
+                <dt>&lt; 12 semanas</dt>
+                <dd>tiempo medio de entrega</dd>
               </div>
-              <div class="card" role="none">
-                <a role="menuitem" href="index.html#space-home">
-                  <img src="img/header img/submenu img/space house.jpg" alt="Space Home" />
-                  <div class="meta">
-                    <div class="title">Space House</div>
-                    <div class="caption">Diseño minimal y eficiente</div>
-                  </div>
-                </a>
+              <div>
+                <dt>+40 proyectos</dt>
+                <dd>instalados en Europa</dd>
               </div>
-              <div class="card" role="none">
-                <a role="menuitem" href="index.html#modulos">
-                  <img src="img/header img/submenu img/estructuras modulares.png" alt="Módulos" />
-                  <div class="meta">
-                    <div class="title">Estructuras Modulares</div>
-                    <div class="caption">Sistemas modulares</div>
-                  </div>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </li>
+            </dl>
+          </div>
+          <div class="hero__media">
+            <div class="hero__slides" data-hero-slides></div>
+            <div class="hero__thumbnails" data-hero-thumbs></div>
+          </div>
+        </div>
+      </section>
 
-        <li role="none"><a role="menuitem" href="#nosotros">Sobre Nosotros</a></li>
+      <section class="section section--catalog" id="catalogo">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__eyebrow">Colecciones modulares</span>
+            <h2>Modelos personalizables según el uso y la superficie.</h2>
+            <p>
+              Selecciona la tipología que mejor se adapta a tu proyecto. Desde suites compactas hasta viviendas familiares y
+              estructuras corporativas. Todas se pueden reconfigurar y ampliar con nuevos módulos.
+            </p>
+          </header>
+          <div class="catalog" data-catalog></div>
+        </div>
+      </section>
 
-        <!-- CONTACTO -->
-        <li role="none" data-has-submenu>
-          <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#!" tabindex="0">Contacto</a>
-          <ul id="submenu-contacto" class="submenu" aria-label="Submenú de contacto" role="menu">
-            <li role="none">
-              <a role="menuitem"
-                 href="mailto:info@neomodulus?subject=Consulta%20desde%20la%20web&body=Hola%20Neomodulus%2C%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre..."
-                 aria-label="Enviar correo a info@neomodulus">
-                 Email
+      <section class="section section--about" id="nosotros">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-grid__content reveal-on-scroll">
+              <span class="section__eyebrow">Sobre Neomodulus</span>
+              <h2>Arquitectura modular de alto rendimiento con alma mediterránea.</h2>
+              <p>
+                Combinamos ingeniería, diseño y fabricación digital para crear espacios que se instalan en días y se disfrutan
+                toda la vida. Nuestro proceso integra modelado BIM, fabricación robotizada y control de calidad continuo.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Diseño integral:</strong> arquitectura, interiorismo y paisajismo coordinados desde el primer boceto.</li>
+                <li><strong>Eficiencia energética:</strong> envolventes pasivas, domótica y sistemas de climatización inteligentes.</li>
+                <li><strong>Escalabilidad:</strong> módulos conectables entre sí para crecer sin obra húmeda ni tiempos muertos.</li>
+              </ul>
+            </div>
+            <div class="about-grid__media reveal-on-scroll">
+              <div class="about-grid__card">
+                <h3>Proceso llave en mano</h3>
+                <p>Gestionamos licencias, fabricación, transporte y montaje con un único interlocutor.</p>
+              </div>
+              <div class="about-grid__card">
+                <h3>Materiales conscientes</h3>
+                <p>Seleccionamos proveedores certificados y soluciones reciclables de baja huella de carbono.</p>
+              </div>
+              <div class="about-grid__card">
+                <h3>Experiencia inmersiva</h3>
+                <p>Ofrecemos visitas virtuales y gemelo digital para personalizar cada detalle antes de fabricar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--faq" id="faq">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__eyebrow">Preguntas frecuentes</span>
+            <h2>Resolvemos las dudas habituales antes de fabricar tu módulo.</h2>
+          </header>
+          <div class="faq" data-faq></div>
+        </div>
+      </section>
+
+      <section class="section section--contact" id="contacto">
+        <div class="container contact-card reveal-on-scroll">
+          <div class="contact-card__content">
+            <span class="section__eyebrow">¿Hablamos?</span>
+            <h2>Cuéntanos tu proyecto y te proponemos el módulo ideal.</h2>
+            <p>
+              Analizamos la parcela, necesidades de uso y normativa para lanzar una propuesta personalizada en 72 horas. También
+              puedes visitar nuestro showroom modular en Valencia.
+            </p>
+            <div class="contact-card__channels">
+              <a href="mailto:info@neomodulus.com" class="contact-card__link">info@neomodulus.com</a>
+              <a href="https://wa.me/34658266368" target="_blank" rel="noreferrer" class="contact-card__link">
+                +34 658 26 63 68
               </a>
-            </li>
-            <li role="none">
-              <a role="menuitem" href="https://wa.me/34658266368" target="_blank" rel="noopener">WhatsApp</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+            </div>
+          </div>
+          <form class="contact-form" action="https://formspree.io/f/xqkrvjqv" method="POST">
+            <label>
+              Nombre completo
+              <input type="text" name="nombre" required autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label>
+              Teléfono
+              <input type="tel" name="telefono" autocomplete="tel" />
+            </label>
+            <label>
+              Cuéntanos qué necesitas
+              <textarea name="mensaje" rows="4" required></textarea>
+            </label>
+            <button class="btn" type="submit">Enviar consulta</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-      <div class="right-controls">
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
-          <span aria-hidden="true" class="menu-toggle__bars"><span></span><span></span><span></span></span>
-        </button>
-
-        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
-          <input type="checkbox" id="lang-toggle" class="lang-toggle" aria-hidden="true" />
-          <label for="lang-toggle" class="lang-trigger" aria-haspopup="menu" aria-controls="lang-menu" aria-expanded="false">
-            <span class="globe-wrapper" role="img" aria-label="Seleccionar idioma">
-              <img src="img/header img/trad/trad icono.png" alt="Globo terráqueo" />
-            </span>
-          </label>
-          <nav id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
-            <div class="lang-title">Idioma</div>
-            <ul class="lang-list">
-              <li class="lang-item"><a href="?lang=es">Español</a></li>
-              <li class="lang-item"><a href="?lang=en">English</a></li>
-              <li class="lang-item"><a href="?lang=fr">Français</a></li>
-              <li class="lang-item"><a href="?lang=de">Deutsch</a></li>
-              <li class="lang-item"><a href="?lang=it">Italiano</a></li>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__brand">
+          <img src="assets/logo/logo.png" alt="Neomodulus" loading="lazy" />
+          <p>Arquitectura modular premium diseñada y fabricada en España.</p>
+        </div>
+        <div class="site-footer__links">
+          <div>
+            <h3>Explorar</h3>
+            <ul>
+              <li><a href="#catalogo" data-scroll>Modelos</a></li>
+              <li><a href="#nosotros" data-scroll>Nosotros</a></li>
+              <li><a href="#faq" data-scroll>FAQ</a></li>
             </ul>
-          </nav>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <ul>
+              <li><a href="mailto:info@neomodulus.com">info@neomodulus.com</a></li>
+              <li><a href="https://wa.me/34658266368" target="_blank" rel="noreferrer">Whatsapp</a></li>
+              <li><a href="https://www.instagram.com/neomodulus" target="_blank" rel="noreferrer">Instagram</a></li>
+            </ul>
+          </div>
         </div>
+        <p class="site-footer__legal">© <span data-year></span> Neomodulus. Todos los derechos reservados.</p>
       </div>
+    </footer>
 
-      <div class="menu-backdrop" hidden></div>
-    </nav>
-  </header>
-
-  <main>
-   <!-- Galería -->
-<section class="gallery gallery--horizontal" id="gallery" aria-label="Galería horizontal de 3 imágenes">
-  
-  <button class="gallery-btn prev" aria-label="Imagen anterior">
-    <svg viewBox="0 0 24 24">
-      <path d="M15.5 3.5L7 12l8.5 8.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
-  <div class="gallery__viewport">
-    <article class="slide" id="slide-1">
-      <div class="frame">
-        <img src="img/scroll  principal img/scroll playa.png" alt="Casa modular de dos pisos frente al lago" />
-      </div>
-    </article>
-    <article class="slide" id="slide-2">
-      <div class="frame">
-        <img src="img/scroll  principal img/scroll prado.png" alt="Casa compacta sobre césped con lago y bosque" />
-      </div>
-    </article>
-    <article class="slide" id="slide-3">
-      <div class="frame">
-        <img src="img/scroll  principal img/scroll bloque.png" alt="Casa modular moderna con paneles solares junto al mar" />
-      </div>
-    </article>
-    <article class="slide" id="slide-4">
-      <div class="frame">
-        <img src="img/scroll  principal img/scroll playa 2.png" alt="Casa modular moderna frente al mar" />
-      </div>
-    </article>
-    <article class="slide" id="slide-5">
-      <div class="frame">
-        <img src="img/scroll  principal img/scroll nieve.png" alt="Casa modular moderna en entorno nevado" />
-      </div>
-    </article>
-    <article class="slide" id="slide-6">
-      <div class="frame">
-        <img src="img/scroll  principal img/lago nieve.png" alt="Casa modular moderna en entorno nevado" />
-      </div>
-    </article>
-  </div>
-
-  <button class="gallery-btn next" aria-label="Imagen siguiente">
-    <svg viewBox="0 0 24 24">
-      <path d="M8.5 3.5L17 12l-8.5 8.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
-</section>
-    <hr class="sep" />
-    <h3 class="descubre-titulo">Descubre nuestros modelos</h3>
-
-    <!-- CASAS -->
-    <section class="section" id="casas">
-      <h2>Casas Prefabricadas <span class="badge">Catálogo</span></h2>
-      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
-      <div class="grid">
-        <figure class="card">
-          <a class="view" href="component/X-O1.html">Ver más</a>
-          <img class="thumb" src="img/catalogo img/18m2/frente.png" alt="Casa R2D2 vista 1" />
-          <figcaption class="meta"><b> X-O1 <span class="metros">18 m²</span></b></figcaption>
-        </figure>
-
-        <figure class="card">
-          <a class="view" href="component/X-O2.html">Ver más</a>
-          <img class="thumb" src="img/catalogo img/26m2/frente.png" alt="Casa R3D3 vista 1" />
-          <figcaption class="meta"><b>X-O2 <span class="metros">26 m²</span></b></figcaption>
-        </figure>
-
-        <figure class="card">
-          <a class="view" href="component/X-O3.html">Ver más</a>
-          <img class="thumb" src="img/catalogo img/26m2/frente.png" alt="Casa R4D4 vista 1" />
-          <figcaption class="meta"><b>X-O3 <span class="metros">36 m²</span></b></figcaption>
-        </figure>
-
-        <figure class="card">
-          <a class="view" href="component/X-O4.html">Ver más</a>
-          <img class="thumb" src="img/catalogo img/54m2/frontal.png" alt="Casa R5D5 vista 1" />
-          <figcaption class="meta"><b>X-O4 <span class="metros">54 m²</span></b></figcaption>
-        </figure>
-
-        <figure class="card">
-          <a class="view" href="component/X-05.html">Ver más</a>
-          <img class="thumb" src="img/catalogo img/72m2/frontal.png" alt="Casa R6D6 vista 1" />
-          <figcaption class="meta"><b>X-O5 <span class="metros">72 m²</span></b></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <hr class="sep" />
-
-    <!-- APPLE HOME -->
-    <section class="section" id="apple-home">
-      <h2>Apple House <span class="badge">Catálogo</span></h2>
-      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
-      <div class="grid">
-        <figure class="card">
-          <a class="view" href="#apple27-1">Ver más</a>
-          <img class="thumb" src="img/catalogo img/Apple 27m2/ah1.png" alt="Apple Home 27m² vista 1" />
-          <figcaption class="meta"><b>Apple House <span class="metros">13 m²</span></b></figcaption>
-        </figure>
-
-        <figure class="card">
-          <a class="view" href="#apple36-1">Ver más</a>
-          <img class="thumb" src="img/catalogo img/Apple 36m2/ah36.1.png" alt="Apple Home 36m² vista 1" />
-          <figcaption class="meta"><b>Apple House <span class="metros">19 m²</span></b></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <hr class="sep" />
-
-    <!-- SPACE HOME -->
-    <section class="section" id="space-home">
-      <h2>Space House <span class="badge">Catálogo</span></h2>
-      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
-      <div class="grid">
-        <figure class="card">
-          <a class="view" href="#space-1">Ver más</a>
-          <img class="thumb" src="img/header img/submenu img/space house.jpg" alt="Space Home vista 1" />
-          <figcaption class="meta"><b>Space House <span class="metros">36 m²</span></b></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <hr class="sep" />
-
-    <!-- MODULOS -->
-    <section class="section" id="modulos">
-      <h2>Estructuras Modulares <span class="badge">Catálogo</span></h2>
-      <p class="lead">Propuestas residenciales con diferentes acabados.</p>
-      <div class="grid">
-        <figure class="card">
-          <a class="view" href="#mod-1">Ver más</a>
-          <img class="thumb" src="img/header img/submenu img/estructuras modulares.png" alt="Módulo vista 1" />
-          <figcaption class="meta"><b>Módulo Base <span class="metros">15 m²</span></b></figcaption>
-        </figure>
-      </div>
-    </section>
-  </main>
-  <!-- ===== BLOQUE SOBRE NOSOTROS ===== -->
-<section class="hero" id="nosotros">
-  <div class="hero-content" data-animate>
-    <h1>Sobre Nosotros</h1>
-    <div class="divider"></div>
-    <p>En <strong>Neomodulus</strong> fusionamos innovación, sostenibilidad y diseño contemporáneo para crear
-      espacios modulares que evolucionan con las personas y su entorno.</p>
-  </div>
-</section>
-
-<section class="about">
-  <div class="about-content" data-animate>
-    <h2>Nuestra Esencia</h2>
-    <p>Creemos que el futuro de la arquitectura está en la flexibilidad y la precisión industrial. 
-      Cada módulo que diseñamos responde a una filosofía de equilibrio entre forma, función y eficiencia energética.</p>
-    <p>Nuestro enfoque combina la experiencia técnica con una visión estética clara, buscando siempre una conexión 
-      entre la naturaleza, la tecnología y la habitabilidad humana.</p>
-
-    <div class="about-values">
-      <div class="value">
-        <i class="fas fa-cube"></i>
-        <h3>Experiencia Modular</h3>
-        <p>Más de una década diseñando soluciones adaptables que reducen tiempos y maximizan la calidad constructiva.</p>
-      </div>
-      <div class="value">
-        <i class="fas fa-drafting-compass"></i>
-        <h3>Diseño Personalizado</h3>
-        <p>Proyectos únicos que reflejan la identidad de cada cliente, con una visión funcional y estética coherente.</p>
-      </div>
-      <div class="value">
-        <i class="fas fa-leaf"></i>
-        <h3>Sostenibilidad Real</h3>
-        <p>Usamos materiales de bajo impacto, procesos limpios y tecnología de eficiencia energética avanzada.</p>
+    <div class="catalog-modal" data-modal hidden aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="catalog-modal__backdrop" data-modal-close></div>
+      <div class="catalog-modal__dialog" role="document">
+        <button class="catalog-modal__close" type="button" data-modal-close aria-label="Cerrar detalles">×</button>
+        <div class="catalog-modal__content" data-modal-content></div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="faq">
-  <div class="faq-shell">
-    <h2>Preguntas frecuentes</h2>
-    <h3>Resuelve tus dudas antes de construir con nosotros</h3>
-    <p class="sub">Transparencia, calidad y acompañamiento en cada fase del proyecto.</p>
-    <div class="faq faq-vertical">
-      <div class="faq-list">
-
-        <details><summary><i class="fas fa-industry"></i> ¿Cuánto tardáis en fabricar un módulo o edificio prefabricado?</summary>
-          <div class="content"><p>El plazo total de fabricación y logística suele ser entre 8 y 16 semanas, según el tipo de producto y las especificaciones del cliente.
-Nuestros procesos industrializados permiten mantener un ritmo de producción constante y garantizar la calidad en cada fase del proyecto.</p></div></details>
-
-        <details><summary><i class="fas fa-truck-moving"></i> ¿Vuestros productos son móviles o fijos?</summary>
-          <div class="content"><p>Disposem de productes tant mòbils com fixos, segons la necessitat del client.
-Els mòduls mòbils són ideals per a usos temporals o traslladables, i també oferim solucions que poden instal·lar-se de forma estable segons el projecte.</p></div></details>
-
-        <details><summary><i class="fas fa-cubes"></i> ¿Con qué materiales trabajáis?</summary>
-          <div class="content"><p>Utilizamos paneles aislantes de poliuretano expandido o lana de roca, según el tipo de aplicación y las exigencias del proyecto.
-Estos materiales ofrecen un excelente aislamiento térmico y acústico, resistencia y durabilidad.</p></div></details>
-
-        <details><summary><i class="fas fa-file-signature"></i> ¿Necesito permiso de obras?</summary>
-          <div class="content"><p>Depende del tipo de instalación y de la normativa municipal.
-Aunque nosotros no gestionamos directamente los permisos, podemos orientarte y ayudarte con las consultas técnicas para que puedas tramitarlos correctamente con el ayuntamiento o tu técnico de confianza.</p></div></details>
-
-        <details><summary><i class="fas fa-shipping-fast"></i> ¿Hacéis el transporte hasta el cliente final?</summary>
-          <div class="content"><p>Sí. Ofrecemos servicio completo de logística y transporte hasta la ubicación del cliente final, asegurando que el producto llegue en perfectas condiciones y dentro de los plazos acordados.</p></div></details>
-
-        <details><summary><i class="fas fa-pencil-ruler"></i> ¿Se pueden personalizar los módulos?</summary>
-          <div class="content"><p>Sí. Nuestros productos permiten adaptar distribuciones, acabados y equipos interiores según las necesidades de cada cliente.
-A partir de nuestros modelos base, podemos ajustar tamaños, aberturas y acabados para conseguir el resultado deseado.</p></div></details>
-
-        <details><summary><i class="fas fa-building"></i> ¿Qué usos pueden tener vuestros productos?</summary>
-          <div class="content"><p>Nuestros módulos se pueden utilizar para múltiples aplicaciones: viviendas, oficinas, vestuarios, almacenes, puntos de venta, módulos sanitarios o espacios temporales de eventos.
-Cada proyecto se diseña según el uso y necesidades específicas del cliente.</p></div></details>
-
-        <details><summary><i class="fas fa-tools"></i> ¿Qué tipo de mantenimiento necesitan?</summary>
-          <div class="content"><p>Nuestros módulos requieren muy poco mantenimiento.
-Sólo se recomienda revisiones periódicas de los elementos de sellado, instalaciones eléctricas y acabados exteriores, especialmente en entornos expuestos a condiciones climáticas extremas.</p></div></details>
-
-        <details><summary><i class="fas fa-shield-alt"></i> ¿Tienen garantía vuestros productos?</summary>
-          <div class="content"><p>Sí. Todos nuestros productos están cubiertos por una garantía de fabricación que asegura la calidad estructural y los materiales utilizados.</p></div></details>
-
-        <details><summary><i class="fas fa-exchange-alt"></i> ¿Se pueden reubicar los módulos una vez instalados?</summary>
-          <div class="content"><p>Los módulos pueden desmontarse y trasladarse a una nueva ubicación con los medios de transporte adecuados, según el modelo y las necesidades del cliente.</p></div></details>
-
-      </div>
+    <div class="floating-contact" data-floating-contact>
+      <a href="https://wa.me/34658266368" target="_blank" rel="noreferrer">Whatsapp</a>
+      <a href="mailto:info@neomodulus.com">Email</a>
     </div>
-  </div>
-</section>
 
-  <footer class="footer" id="contacto">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Neomodulus</h4>
-        <p>Arquitectura modular: viviendas modernas, eficientes y sostenibles.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Contacto</h4>
-        <p>
-          Tel: <a href="https://wa.me/34658266368" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">+34 658 26 63 68</a><br />
-          <a href="mailto:info@neomodulus.com">info@neomodulus.com</a><br />
-          <a href="mailto:marcroca@neomodulus.com">marcroca@neomodulus.com</a>
-        </p>
-      </div>
-      <div class="footer-section">
-        <h4>Síguenos</h4>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram"><img src="img/footer img/ig icono.png" alt="Instagram" class="footer-icon" /></a>
-          <a href="#" aria-label="Wallapop"><img src="img/footer img/wallap.png" alt="Wallapop" class="footer-icon" /></a>
-          <a href="https://wa.me/34658266368" aria-label="WhatsApp" target="_blank" rel="noopener"><img src="img/footer img/whatsapp icono.png" alt="WhatsApp" class="footer-icon" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">&copy; <span id="year"></span> Neomodulus. Todos los derechos reservados.</div>
-  </footer>
-
-  <script src="https://kit.fontawesome.com/a2e0e9e6a0.js" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
