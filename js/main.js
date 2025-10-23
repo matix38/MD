@@ -1,3 +1,5 @@
+"use strict";
+
 /* === Carrusel funcional y fluido === */
 (function() {
   const gallery = document.querySelector('.gallery--horizontal');
@@ -204,6 +206,28 @@
   });
 
   trigger.addEventListener('click', (e) => e.preventDefault());
+})();
+/* === Animaciones reveal con IntersectionObserver === */
+(function(){
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  if (!reveals.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    reveals.forEach(el => el.classList.add('active'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
 })();
 
 /* === Scroll suave para anclas internas === */
