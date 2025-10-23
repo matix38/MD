@@ -1,124 +1,169 @@
-/* =========================
-   Catálogo y secciones
-   ========================= */
+.section {
+  max-width: var(--container);
+  margin: 100px auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+
+.section h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section .lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 .section .grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--gap);
-  grid-template-columns: repeat(12, 1fr);
-  margin-left: 100px;
-}
-@media (max-width: 1000px) {
-  .section .grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .section .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .card {
-  grid-column: span 4;
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--ink-soft);
-  border-radius: 18px;
   background: var(--white);
-  transition: transform 0.18s ease;
-  padding-bottom: 70px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--motion-med) var(--ease);
 }
+
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--gray-300);
 }
 
 .thumb {
-  aspect-ratio: 4/3;
   width: 100%;
+  aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
+  transition: transform var(--motion-slow) var(--ease);
+}
+
+.card:hover .thumb {
+  transform: scale(1.05);
 }
 
 .meta {
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 12px 14px;
-  border-top: 1px solid var(--ink-soft);
-  color: var(--black-matte);
+  align-items: center;
+  border-top: 1px solid var(--border);
 }
+
 .meta b {
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
   display: flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
 }
+
 .metros {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 14px;
   font-weight: 500;
-  position: relative;
-  top: -1px;
+  color: var(--text-muted);
 }
 
 .view {
   position: absolute;
-  right: 12px;
-  bottom: 50px;
-  z-index: 2;
+  bottom: 24px;
+  right: 20px;
+  padding: 8px 18px;
   background: var(--white);
-  color: var(--black-matte);
-  text-decoration: none;
-  border: 1px solid var(--ink-soft);
-  border-radius: 999px;
-  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 14px;
   font-weight: 500;
-  font-size: 0.88rem;
-  transition: all 0.2s ease;
+  color: var(--text);
+  transition: all var(--motion-fast) var(--ease);
+  z-index: 2;
 }
-.card:hover .view {
-  box-shadow: 0 0 0 3px rgba(15, 16, 16, 0.05);
+
+.view:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+  transform: scale(1.05);
 }
 
 .sep {
-  height: 1px;
-  background: var(--ink-soft);
-  border: none;
-  margin: 38px auto;
+  width: 100%;
   max-width: var(--container);
-  opacity: 0.6;
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 80px auto;
 }
 
-/* =========================
-   NUEVO TÍTULO “Descubre nuestros modelos”
-   ========================= */
 .descubre-titulo {
-  text-align: center;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3.4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 300;
-  color: var(--black-matte);
-  letter-spacing: -0.6px;
-  margin: 200px 0 120px; /* 🔹 Aumentado el margen inferior */
-  line-height: 1.1;
-  margin-left: 40px;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-align: center;
+  margin: 120px auto 100px;
+  max-width: 20ch;
 }
 
-/* =========================
-   Centrar títulos y textos
-   ========================= */
-.section h2 {
-  text-align: center;
-  margin-left: 140px;
+@media (max-width: 768px) {
+  .section {
+    margin: 60px auto;
+  }
+
+  .section .grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  .descubre-titulo {
+    margin: 80px auto 60px;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .sep {
+    margin: 60px auto;
+  }
 }
-.section .lead {
-  text-align: center;
-  margin-left: 100px;
-}
-.badge {
-  border: 1px solid var(--ink-soft);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 0.82rem;
-  margin-left: 8px;
+
+@media (max-width: 480px) {
+  .section {
+    margin: 40px auto;
+  }
+
+  .meta {
+    padding: 14px 16px;
+  }
+
+  .view {
+    bottom: 20px;
+    right: 16px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
 }

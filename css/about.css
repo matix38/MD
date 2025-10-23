@@ -1,121 +1,110 @@
-/* ======== VARIABLES Y BASE ======== */
-:root {
-  --color-primary: #1a1a1a;
-  --color-secondary: #555;
-  --color-accent: #000;
-  --bg-light: #f9f9f9;
-  --font-main: 'Poppins', sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-main);
-  color: var(--color-primary);
-  background-color: #fff;
-  line-height: 1.6;
-}
-
-/* ======== HERO ======== */
 .hero {
   text-align: center;
-  padding: 120px 20px 80px;
-  background-color: #fff;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 4vw, 48px) clamp(60px, 8vw, 100px);
+  background-color: var(--white);
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
-  animation: fadeUp 1.2s ease both;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 24px;
 }
 
 .divider {
-  width: 100px;
-  height: 3px;
-  background-color: var(--color-accent);
-  margin: 0 auto 30px;
-  border-radius: 2px;
+  width: 80px;
+  height: 2px;
+  background-color: var(--black);
+  margin: 0 auto 32px;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  color: var(--color-secondary);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--text-muted);
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
-/* ======== ABOUT ======== */
 .about {
-  background-color: var(--bg-light);
-  padding: 100px 20px;
+  background-color: var(--gray-100);
+  padding: clamp(60px, 10vw, 100px) clamp(20px, 4vw, 48px);
 }
 
 .about-content {
   max-width: 1000px;
   margin: 0 auto;
-  animation: fadeUp 1s ease both;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
 }
 
 .about h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  position: relative;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 48px;
 }
 
 .about p {
-  font-size: 1.1rem;
-  color: var(--color-secondary);
-  margin-bottom: 25px;
-  text-align: justify;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.7;
 }
 
-/* ======== VALORES ======== */
 .about-values {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: var(--gap);
   margin-top: 60px;
 }
 
 .value {
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  background: var(--white);
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all var(--motion-med) var(--ease);
 }
 
 .value:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--gray-300);
 }
 
 .value i {
-  font-size: 2rem;
-  color: var(--color-accent);
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  display: block;
 }
 
 .value h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 12px;
 }
 
 .value p {
-  color: var(--color-secondary);
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* ======== ANIMACIONES ======== */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -127,16 +116,21 @@ body {
   }
 }
 
-/* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
+  .hero {
+    padding: 60px 20px 40px;
   }
-  .about h2 {
-    font-size: 2rem;
+
+  .about {
+    padding: 60px 20px;
   }
-  .value h3 {
-    font-size: 1.2rem;
+
+  .about-values {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  .value {
+    padding: 32px 24px;
   }
 }
-

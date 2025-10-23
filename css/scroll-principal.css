@@ -1,36 +1,28 @@
-/* ======================
-   GALERÍA HORIZONTAL
-   ====================== */
 .gallery {
   position: relative;
-  max-width: 90%;
-  margin: 24px auto;
-  padding: 0 10px;
+  max-width: 100%;
+  margin: 80px auto;
   overflow: hidden;
 }
 
-/* Contenedor del carrusel */
 .gallery__viewport {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 80%;
+  grid-auto-columns: 90%;
+  gap: var(--gap);
   overflow-x: auto;
-  gap: 50px;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 5%;
 }
 
 .gallery__viewport::-webkit-scrollbar {
   display: none;
 }
 
-/* ======================
-   SLIDES
-   ====================== */
 .slide {
-  position: relative;
   scroll-snap-align: center;
   display: flex;
   align-items: center;
@@ -39,82 +31,100 @@
 
 .frame {
   width: 100%;
-  height: auto;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border-radius: var(--radius-md, 12px);
-  box-shadow: var(--shadow-md, 0 6px 18px rgba(0,0,0,0.15));
-  background: #000;
+  box-shadow: var(--shadow-lg);
+  background: var(--black);
+  transition: transform var(--motion-slow) var(--ease);
+}
+
+.frame:hover {
+  transform: scale(1.01);
 }
 
 .frame img {
   width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
-  transition: transform 0.6s ease, filter 0.4s ease;
+  display: block;
+  object-fit: cover;
+  transition: filter var(--motion-med) var(--ease);
+  filter: grayscale(0.1);
 }
 
-/* Efecto leve al pasar el ratón (solo imagen, no flechas) */
 .frame:hover img {
-  transform: scale(1.03);
-  filter: brightness(1.05);
+  filter: grayscale(0);
 }
 
-/* ======================
-   FLECHAS DE NAVEGACIÓN
-   ====================== */
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  transition: all var(--motion-med) var(--ease);
   z-index: 10;
   backdrop-filter: blur(8px);
 }
 
-.gallery-btn svg {
-  width: 26px;
-  height: 26px;
-  stroke: #333;
+.gallery:hover .gallery-btn {
+  opacity: 1;
 }
 
-/* Sin hover */
 .gallery-btn:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-50%);
+  background: var(--white);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.gallery-btn:hover svg {
-  stroke: #333;
+.gallery-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--black);
+  stroke-width: 2;
 }
 
-/* Posición */
 .gallery-btn.prev {
-  left: 15px;
+  left: 24px;
 }
 
 .gallery-btn.next {
-  right: 15px;
+  right: 24px;
 }
 
-/* ===== FLECHAS AUTO-HIDE ===== */
-.gallery-btn {
-  opacity: 0;
-  pointer-events: none;
-}
+@media (max-width: 768px) {
+  .gallery {
+    margin: 48px auto;
+  }
 
-.gallery:hover .gallery-btn {
-  opacity: 1;
-  pointer-events: all;
-}
+  .gallery__viewport {
+    grid-auto-columns: 100%;
+    gap: var(--gap-sm);
+    padding: 0;
+  }
 
+  .gallery-btn {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  .gallery-btn.prev {
+    left: 12px;
+  }
+
+  .gallery-btn.next {
+    right: 12px;
+  }
+
+  .frame {
+    border-radius: var(--radius-md);
+  }
+}
